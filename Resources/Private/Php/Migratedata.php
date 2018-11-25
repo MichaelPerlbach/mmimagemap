@@ -33,8 +33,7 @@ foreach($data as $item){
 	\''.mysqli_real_escape_string($database,$item['file']).'\',
 	\''.mysqli_real_escape_string($database,$item['alt_file']).'\',
 	\''.mysqli_real_escape_string($database,$item['folder']).'\');';
-	
-	
+	$result = mysqli_query($database, $sql, MYSQLI_USE_RESULT);
 }
 
 $sql = 'select * from tx_mwimagemap_point';
@@ -49,7 +48,7 @@ foreach($data as $item){
 	'.(int)$item['num'].',
 	'.(int)$item['x'].',
 	'.(int)$item['y'].');';
-	
+	$result = mysqli_query($database, $sql, MYSQLI_USE_RESULT);
 }
 
 $sql = 'select * from tx_mwimagemap_area';
@@ -69,8 +68,7 @@ foreach($data as $item){
 	'.(int)$item['fe_visible'].',
 	'.(int)$item['fe_borderthickness'].',
 	\''.mysqli_real_escape_string($database,$item['fe_altfile']).'\');';
-	
-	//print $sql;
+	$result = mysqli_query($database, $sql, MYSQLI_USE_RESULT);
 }
 
 
@@ -86,8 +84,7 @@ foreach($data as $item){
 	'.(int)$item['mid'].',
 	\''.mysqli_real_escape_string($database,$item['colorname']).'\',
 	\''.mysqli_real_escape_string($database,str_replace('#','',$item['color'])).'\');';
-	
-	//print $sql;
+	$result = mysqli_query($database, $sql, MYSQLI_USE_RESULT);
 }
 
 
@@ -109,8 +106,7 @@ foreach($data as $item){
 	\''.mysqli_real_escape_string($database,str_replace('#','',$item['popup_backgroundcolor'])).'\',
 	'.(int)$item['popup_borderwidth'].',
 	'.(int)$item['active'].'\');';
-	
-	//print $sql;
+	$result = mysqli_query($database, $sql, MYSQLI_USE_RESULT);
 }
 
 // copy all overlay images
@@ -125,6 +121,7 @@ $dh = opendir($oldpath)) {
 		}
 	}
 }
+closedir($oldpath);
 
 
 
