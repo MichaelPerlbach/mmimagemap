@@ -172,8 +172,8 @@ class	FrontendDisplayController	extends	\TYPO3\CMS\Extbase\Mvc\Controller\Action
 				}
 				
 				$cboxes[] = $areadata['contentpopup'];
-				$thisparams['mouseover'] .= 'Javascript:mmimagemap_showCBox(\'txmmimagemap_cbox_'.$areadata['contentpopup']['uid'].'\');';
-				$thisparams['mouseout'] .= 'Javascript:mmimagemap_hideCBox(\'txmmimagemap_cbox_'.$areadata['contentpopup']['uid'].'\');';
+				$thisparams['mouseover'] = $thisparams['mouseover'].'Javascript:mmimagemap_showCBox(\'txmmimagemap_cbox_'.$areadata['contentpopup']['uid'].'\');';
+				$thisparams['mouseout'] = $thisparams['mouseout'].'Javascript:mmimagemap_hideCBox(\'txmmimagemap_cbox_'.$areadata['contentpopup']['uid'].'\');';
 			}
 			
 			$thisarea['params'] = '';
