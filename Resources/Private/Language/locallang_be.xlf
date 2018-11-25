@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-04-20T19:42:09Z" product-name="mmimagemap">
+		<header/>
+		<body>
+
+			<trans-unit id="mlang_tabs_tab">
+				<source>mm_imagemap</source>
+			</trans-unit>
+
+			<trans-unit id="mlang_labels_tabdescr">
+				<source>Create linked area map</source>
+			</trans-unit>
+
+			<trans-unit id="mlang_labels_tablabel">
+				<source>Imagemap</source>
+			</trans-unit>
+		
+			<trans-unit id="tx_mmimagemap.wizard_pi1_title">
+				<source>Imagemap</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_mmimagemap.selectimagemap">
+				<source>select an imagemap</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_mmimagemap.wizard_pi1_description">
+				<source>edit imagemaps in Wysiwyg mode</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.title">
+				<source>mm_imagemap</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.err_upload1">
+				<source>error during file upload</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.create_map">
+				<source>Create image map:</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.err_file_exists">
+				<source>File already exists</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.err_file_size">
+				<source>File is too big</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.err">
+				<source>Errors:</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.mapname">
+				<source>Image Map Name</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.picture">
+				<source>Picture</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.add">
+				<source>Add</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.del">
+				<source>delete</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.eim">
+				<source>Existing Image Maps:</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.description">
+				<source>Description</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.type">
+				<source>Type</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.circle">
+				<source>Circle</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.link">
+				<source>Link</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.rectangle">
+				<source>Rectangle</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.polygon">
+				<source>Polygon</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.edit">
+				<source>Edit</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.add_point">
+				<source>Add Point</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.position">
+				<source>Position</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.firstposition">
+				<source>First Position</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.lastposition">
+				<source>Last Position</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.xpos">
+				<source>X Pos</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.ypos">
+				<source>Y Pos</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.edit_link_area">
+				<source>Edit Link Area:</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.add_link_area">
+				<source>Add Link Area:</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.link_arealist">
+				<source>Link Area List:</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.err_nvd">
+				<source>No valid data!</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.diff_amount">
+				<source>A different amount of xpos and ypos</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.inval_x">
+				<source>A invalid xpos submited</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.inval_y">
+				<source>A invalid ypos submited</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.xsize">
+				<source>Width</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.ysize">
+				<source>Height</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.ocsr">
+				<source>OnClick set Radius</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_mmimagemap.radius">
+				<source>radius</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.ocscc">
+				<source>OnClick set Circle Center</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.point_number">
+				<source>N°</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.point_number1">
+				<source>N°</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.delete_point">
+				<source>delete: </source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.delete_point1">
+				<source>delete:</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.edit_point">
+				<source>edit</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.color">
+				<source>Color</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.red">
+				<source>red</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.blue">
+				<source>blue</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.green">
+				<source>green</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.setsize">
+				<source>on click set size</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.setpos">
+				<source>on click set upper left corner</source>
+			</trans-unit>
+
+			<trans-unit id="mark_startpoint">
+				<source>mark startpoint</source>
+			</trans-unit>
+
+			<trans-unit id="close">
+				<source>close polygon</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.mark_endpoint">
+				<source>mark endpoint</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.give_name">
+				<source>Please enter a name</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.give_descript">
+				<source>Please enter a description</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.use_pic">
+				<source>Use picture from existing image map</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.nofile">
+				<source>Please upload or select a image file</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.do_blink">
+				<source>blinks</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.save">
+				<source>save</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.deleted">
+				<source>deleted</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.orange">
+				<source>orange</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.tuerkis">
+				<source>turquoise</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.violet">
+				<source>violet</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.magenta">
+				<source>magenta</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.area">
+				<source>Area</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.editpoints">
+				<source>Edit Points</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.param">
+				<source>Additional Parameters for the linked area</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.discard">
+				<source>Do you really want to discard changes?</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.default">
+				<source>default link</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.justonedef">
+				<source>Only one default link per image allowed</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.choose_dir">
+				<source>Please choose a directory</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.illegal_filename">
+				<source>the picture file name may not start with "t_"</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.use_map">
+				<source>Use already existing imagemap with new picture</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.new_pic">
+				<source>Upload a new picture</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.movex">
+				<source>Move x-ward</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.movey">
+				<source>Move y-ward</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.move">
+				<source>Move</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.use_file">
+				<source>Use picture from that directory</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.del_unused">
+				<source>If not used by other imagemap, delete picture</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.fe_hidden">
+				<source>border never visible in frontend</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.fe_visible">
+				<source>border always visible in frontend</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.fe_mouseover">
+				<source>border only visible on mouseover</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.fe_bordercolor">
+				<source>border color in frontend</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.fe_bgcolor">
+				<source>background color in frontend</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.fe_borderthickness">
+				<source>border thickness in frontend(px)</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.fe_options">
+				<source>frontend options</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.showoptions">
+				<source>show options</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.hideoptions">
+				<source>hide options</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.border">
+				<source>border</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.name">
+				<source>name</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.addcolor">
+				<source>Add color:</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.sizepos">
+				<source>size/position</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.delconf1">
+				<source>if you delete this color other imagemaps using it will also be affected\nDo you wish to proceed anyway?</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.delconf2">
+				<source>do you really want to delete this color?</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.selectedareas">
+				<source>selected areas</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.toggleup">
+				<source>move mouseposition display above image</source>
+			</trans-unit>
+
+			<trans-unit id="ttx_mmimagemap.toggledown">
+				<source>move mouseposition display under image</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.delimg1">
+				<source>This image will be deleted, if it is not used by another imagemap\nDo you wish to proceed?</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.delimg2">
+				<source>You will not delete this image, even if it is not used by another imagemap\nDo you wish to proceed anyway?</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.erroc">
+				<source>An error occured:</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.contaction">
+				<source>Do you wish to continue with your action?</source>
+			</trans-unit>
+
+
+			<trans-unit id="tx_mmimagemap.polyclick">
+				<source>Add points when clicking on the image</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.contentbox">
+				<source>Content Box</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.contentboxid">
+				<source>Content Element</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.contentboxactivated">
+				<source>Content Box active</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.browseforelements">
+				<source>Browse for records</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.delelement">
+				<source>Remove item</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.elementhidden">
+				<source>Item is hidden</source>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.elementdeleted">
+				<source>Item is deleted</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,570 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xliff version="1.0">
+	<file source-language="de" datatype="plaintext" original="messages" date="2014-04-20T19:42:09Z" product-name="mmimagemap">
+		<header/>
+		<body>
+		
+			<trans-unit id="mlang_tabs_tab">
+				<source>Imagemap</source>
+				<target>Imagemap</target>
+			</trans-unit>
+
+			<trans-unit id="mlang_labels_tabdescr">
+				<source>Create linked area map</source>
+				<target>verlinkten Bereich erzeugen</target>
+			</trans-unit>
+
+			<trans-unit id="mlang_labels_tablabel">
+				<source>Imagemap</source>
+				<target>Imagemap</target>
+			</trans-unit>
+		
+			<trans-unit id="tx_mmimagemap.wizard_pi1_title">
+				<source>Imagemap</source>
+				<target>Imagemap</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_mmimagemap.wizard_pi1_description">
+				<source>edit imagemaps in Wysiwyg mode</source>
+				<target>Wysiwyg Bearbeitung von Imagemaps</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_mmimagemap.selectimagemap">
+				<source>select an imagemap</source>
+				<target>Eine Imagemap auswählen</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_mmimagemap.title">
+				<source>mm_imagemap</source>
+				<target>mm_imagemap</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.err_upload1">
+				<source>error during file upload</source>
+				<target>Fehler beim Hochladen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.create_map">
+				<source>Create image map:</source>
+				<target>Imagemap anlegen:</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.err_file_exists">
+				<source>File already exists</source>
+				<target>Datei existiert bereits</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.err_file_size">
+				<source>File is too big</source>
+				<target>Datei ist zu gross</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.err">
+				<source>Errors:</source>
+				<target>Fehler:</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.mapname">
+				<source>Image Map Name</source>
+				<target>Name der Image Map</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.picture">
+				<source>Picture</source>
+				<target>Bild</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.add">
+				<source>Add</source>
+				<target>Hinzufügen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.del">
+				<source>delete</source>
+				<target>Löschen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.eim">
+				<source>Existing Image Maps:</source>
+				<target>Existierende Image Maps</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.description">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.type">
+				<source>Type</source>
+				<target>Typ</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.circle">
+				<source>Circle</source>
+				<target>Kreis</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.link">
+				<source>Link</source>
+				<target>Link</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.rectangle">
+				<source>Rectangle</source>
+				<target>Rechteck</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.polygon">
+				<source>Polygon</source>
+				<target>Polygon</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.edit">
+				<source>Edit</source>
+				<target>Speichern</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.add_point">
+				<source>Add Point</source>
+				<target>Punkt Hinzufügen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.position">
+				<source>Position</source>
+				<target>Position</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.firstposition">
+				<source>First Position</source>
+				<target>erste Position</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.lastposition">
+				<source>Last Position</source>
+				<target>letzte Position</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.xpos">
+				<source>X Pos</source>
+				<target>X</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.ypos">
+				<source>Y Pos</source>
+				<target>Y</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.edit_link_area">
+				<source>Edit Link Area:</source>
+				<target>verlinkten Bereich bearbeiten:</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.add_link_area">
+				<source>Add Link Area:</source>
+				<target>verlinkten Bereich hinzufügen:</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.link_arealist">
+				<source>Link Area List:</source>
+				<target>Liste der verlinkten Bereiche:</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.err_nvd">
+				<source>No valid data!</source>
+				<target>Keine gültigen Daten</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.diff_amount">
+				<source>A different amount of xpos and ypos</source>
+				<target>Unterschiedlich viele X und Y Positionen angegeben</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.inval_x">
+				<source>A invalid xpos submited</source>
+				<target>ungültige X-Position angegeben</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.inval_y">
+				<source>A invalid ypos submited</source>
+				<target>ungültige Y-Position angegeben</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.xsize">
+				<source>Width</source>
+				<target>Breite</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.ysize">
+				<source>Height</source>
+				<target>Höhe</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.ocsr">
+				<source>OnClick set Radius</source>
+				<target>Bei Klick Radius setzen</target>
+			</trans-unit>
+			
+			<trans-unit id="tx_mmimagemap.radius">
+				<source>radius</source>
+				<target>Radius</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.ocscc">
+				<source>OnClick set Circle Center</source>
+				<target>Bei Klick Mittelpunkt setzen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.point_number">
+				<source>N°</source>
+				<target>N°</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.point_number1">
+				<source>N°</source>
+				<target>N°</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.delete_point">
+				<source>delete: </source>
+				<target>löschen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.delete_point1">
+				<source>delete:</source>
+				<target>löschen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.edit_point">
+				<source>edit</source>
+				<target>editieren</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.color">
+				<source>Color</source>
+				<target>Farbe</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.red">
+				<source>red</source>
+				<target>rot</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.blue">
+				<source>blue</source>
+				<target>blau</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.green">
+				<source>green</source>
+				<target>grün</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.setsize">
+				<source>on click set size</source>
+				<target>Bei Klick Grösse ändern</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.setpos">
+				<source>on click set upper left corner</source>
+				<target>Bei Klick obere linke Ecke positionieren</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.mark_startpoint">
+				<source>mark startpoint</source>
+				<target>Startpunkt markieren</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.close">
+				<source>close polygon</source>
+				<target>Schliesse Polygon</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.mark_endpoint">
+				<source>mark endpoint</source>
+				<target>Endpunkt markieren</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.give_name">
+				<source>Please enter a name</source>
+				<target>Bitte einen Namen angeben</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.give_descript">
+				<source>Please enter a description</source>
+				<target>Bitte eine Beschreibung angeben</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.use_pic">
+				<source>Use picture from existing image map</source>
+				<target>Bild von existierender Imagemap benutzen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.nofile">
+				<source>Please upload or select a image file</source>
+				<target>Bitte ein Bild hochladen oder auswählen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.do_blink">
+				<source>blinks</source>
+				<target>blinkt</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.save">
+				<source>save</source>
+				<target>Speichern</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.deleted">
+				<source>deleted</source>
+				<target>gelöscht</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.orange">
+				<source>orange</source>
+				<target>Orange</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.tuerkis">
+				<source>turquoise</source>
+				<target>Türkis</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.violet">
+				<source>violet</source>
+				<target>Violett</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.magenta">
+				<source>magenta</source>
+				<target>Magenta</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.area">
+				<source>Area</source>
+				<target>Bereich</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.editpoints">
+				<source>Edit Points</source>
+				<target>Punkte bearbeiten</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.param">
+				<source>Additional Parameters for the linked area</source>
+				<target>Zusätzliche Parameter für den verlinkten Bereich</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.discard">
+				<source>Do you really want to discard changes?</source>
+				<target>Wollen Sie wirklich die Änderungen verwerfen?</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.default">
+				<source>default link</source>
+				<target>Standard Link</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.justonedef">
+				<source>Only one default link per image allowed</source>
+				<target>Nur ein Default Link pro Bild erlaubt</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.choose_dir">
+				<source>Please choose a directory</source>
+				<target>Bitte wählen Sie ein Verzeichnis aus</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.illegal_filename">
+				<source>the picture file name may not start with "t_"</source>
+				<target>Der Dateiname des Bildes darf nicht mit "t_" beginen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.use_map">
+				<source>Use already existing imagemap with new picture</source>
+				<target>Bereits bestehende Imagemap mit neuem Bild verwenden</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.new_pic">
+				<source>Upload a new picture</source>
+				<target>Neues Bild hochladen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.movex">
+				<source>Move x-ward</source>
+				<target>Auf der X-Achse verschieben</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.movey">
+				<source>Move y-ward</source>
+				<target>Auf der Y-Achse verschieben</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.move">
+				<source>Move</source>
+				<target>Verschieben</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.use_file">
+				<source>Use picture from that directory</source>
+				<target>Benutze Bild aus diesem Verzeichnis</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.del_unused">
+				<source>If not used by other imagemap, delete picture</source>
+				<target>wenn von keiner anderen Imagemap benutzt, Bild löschen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.fe_hidden">
+				<source>border never visible in frontend</source>
+				<target>Rahmen im Frontend nicht sichtbar</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.fe_visible">
+				<source>border always visible in frontend</source>
+				<target>Rahmen immer im Frontend sichtbar</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.fe_mouseover">
+				<source>border only visible on mouseover</source>
+				<target>Rahmen nur bei mouseover sichtbar</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.fe_bordercolor">
+				<source>border color in frontend</source>
+				<target>Rahmenfarbe im Frontend</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.fe_bgcolor">
+				<source>background color in frontend</source>
+				<target>Hintergrundfarbe im Frontend</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.fe_borderthickness">
+				<source>border thickness in frontend(px)</source>
+				<target>Rahmendicke im frontend(px)</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.fe_options">
+				<source>frontend options</source>
+				<target>Frontend Optionen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.showoptions">
+				<source>show options</source>
+				<target>Optionen anzeigen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.hideoptions">
+				<source>hide options</source>
+				<target>Optionen ausblenden</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.border">
+				<source>border</source>
+				<target>Rahmen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.name">
+				<source>name</source>
+				<target>Name</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.addcolor">
+				<source>Add color:</source>
+				<target>Farbe hinzufügen:</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.sizepos">
+				<source>size/position</source>
+				<target>Grösse/Position</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.delconf1">
+				<source>if you delete this color other imagemaps using it will also be affected\nDo you wish to proceed anyway?</source>
+				<target>Vom Löschen dieser Farbe können auch andere imagemaps betroffen sein, die diese Farbe ebenfalls benutzen.\nTrotzdem fortfahren?</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.delconf2">
+				<source>do you really want to delete this color?</source>
+				<target>Soll diese Farbe wirklich gelöscht werden?</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.selectedareas">
+				<source>selected areas</source>
+				<target>ausgewählte Bereiche</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.toggleup">
+				<source>move mouseposition display above image</source>
+				<target>Mauspositionsanzeige oberhalb des Bildes</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.toggledown">
+				<source>move mouseposition display under image</source>
+				<target>Mauspositionsanzeige unterhalb des Bildes</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.delimg1">
+				<source>This image will be deleted, if it is not used by another imagemap\nDo you wish to proceed?</source>
+				<target>Dieses Bild wird gelöscht, wenn es zu keiner Imagemap gehört.\nFortfahren?</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.delimg2">
+				<source>You will not delete this image, even if it is not used by another imagemap\nDo you wish to proceed anyway?</source>
+				<target>Dieses Bild wird nicht gelöscht, auch wenn es von keiner Imagemap benutzt wird.\nTrotzdem fortfahren?</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.erroc">
+				<source>An error occured:</source>
+				<target>Ein Fehler ist aufgetreten:</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.contaction">
+				<source>Do you wish to continue with your action?</source>
+				<target>Trotzdem mit der Aktion fortfahren?</target>
+			</trans-unit>
+
+
+			<trans-unit id="tx_mmimagemap.polyclick">
+				<source>Add points when clicking on the image</source>
+				<target>Bei Klick auf das Bild Punkte hinzufügen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.contentbox">
+				<source>Content Box</source>
+				<target>Content Box</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.contentboxid">
+				<source>Content Element</source>
+				<target>Content Element</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.contentboxactivated">
+				<source>Content Box active</source>
+				<target>Content Box aktiv</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.browseforelements">
+				<source>Browse for records</source>
+				<target>Datensätze durchblättern</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.delelement">
+				<source>Remove item</source>
+				<target>Objekt löschen</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.elementhidden">
+				<source>Item is hidden</source>
+				<target>Objekt ist versteckt</target>
+			</trans-unit>
+
+			<trans-unit id="tx_mmimagemap.elementdeleted">
+				<source>Item is deleted</source>
+				<target>Objekt ist gelöscht</target>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>

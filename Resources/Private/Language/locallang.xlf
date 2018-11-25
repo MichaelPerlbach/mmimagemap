@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-07-03T21:42:38Z">
+		<header>
+			<generator>LFEditor</generator>
+		</header>
+		<body>
+		<trans-unit id="tx_mmcontactform.name">
+			<source>name*</source>
+		</trans-unit>
+		<trans-unit id="tx_mmcontactform.email">
+			<source>email*</source>
+		</trans-unit>
+		<trans-unit id="tx_mmcontactform.message">
+			<source>message*</source>
+		</trans-unit>
+		<trans-unit id="tx_mmcontactform.imgcode">
+			<source><![CDATA[confirmation&nbsp;code*]]></source>
+		</trans-unit>
+		<trans-unit id="tx_mmcontactform.errname">
+			<source>please insert a name</source>
+		</trans-unit>
+		<trans-unit id="tx_mmcontactform.erremail">
+			<source>please insert a valid email address</source>
+		</trans-unit>
+		<trans-unit id="tx_mmcontactform.errcode">
+			<source>please insert a correct confirmation code</source>
+		</trans-unit>
+		<trans-unit id="tx_mmcontactform.errmessage">
+			<source>please insert a message</source>
+		</trans-unit>
+		
+		<trans-unit id="tx_mmcontactform.sendform">
+			<source><![CDATA[&nbsp;send &gt;&nbsp;]]></source>
+		</trans-unit>	
+		</body>
+	</file>
+</xliff>

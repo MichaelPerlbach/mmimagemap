@@ -1,0 +1,1102 @@
+{namespace k=MikelMade\Mmimagemap\ViewHelpers}
+<f:layout name="Backend" />
+
+<f:section name="content">
+
+<h2>MM Imagemap</h2>
+
+<!-- ###IMG_PART### -->
+<script type="text/javascript">
+var tpos			= "u";
+var m_toggle	= new Array();
+m_toggle["u"] = "<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.toggleup" />";
+m_toggle["d"] = "<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.toggledown" />";
+</script>
+<div id="mpos" class="toolwrap" style="padding:0px; margin:10px 0px;">
+	<table cellspacing="0" cellpadding="0" border="0" style="height:30px;">
+		<tr>
+			<td width="60"><strong>&nbsp;&nbsp;x:&nbsp;</strong></td>
+			<td width="30">
+				<div id="xx" style="width:30px;">0</div>
+			</td>
+			<td width="60"><strong>&nbsp;&nbsp;y:&nbsp;</strong></td>
+			<td width="60"><div id="yy">0</div></td>
+			<td style="width:100%">&nbsp;</td>
+			<td style="padding:0px;padding-right:9px;"><div id="togglepos"><div class="icon down" id="toggleposicon" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.toggledown" />"></td>
+		</tr>
+	</table>
+</div>
+<div id="canvas" style="position:relative; top:0px; left:0px; background-image:url({picdata.dir}); width:{picdata.w}px; height:{picdata.h}px; border:1px solid #999999;"></div>
+<br />
+<!-- ###IMG_PART### -->
+
+
+<!-- ###ADD_PART### -->
+<script type="Text/Javascript">function check_chg_vars() { return true; }</script>
+<a href="Javascript:a_toggle('area_add');"><h3 class="uppercase"><div class="icon minus" id="add_formtoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.add_link_area" /></h3></a>
+<f:form method="post" controller="Backend" id="edit_form" name="editform" action="edit" extensionName="mmimagemap" enctype="multipart/form-data" additionalAttributes="{autocomplete: 'off'}" arguments='{mapid:mapid}'>
+
+	<input type="hidden" name="area_page" value="1" />
+	<input type="hidden" name="mapid" value="{mapid}" />
+	<input type="hidden" id="editaction" name="action" value="addarea" />
+	<input type="hidden" name="path" value="{path}" />
+	<input type="hidden" id="actiondata" name="actiondata" />
+	<table cellpadding="0" id="area_add" class="toolwrap" cellspacing="0" style="padding:0px; margin:5px 0px 10px 0px; width:100%;">
+		<tr>
+			<td style="padding:10px 0px 0px 10px;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.description" />:</td>
+			<td style="padding:10px 0px 0px 0px;"><div style="padding-left:10px;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.type" />:</div></td>
+			<td style="padding:10px 10px 0px 0px;"><div style="padding-left:10px;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.link" />:</div></td>
+		</tr>
+		<tr>
+			<td style="padding:0px 0px 0px 10px; width:30%;"><input type="text" name="descriptnew" /></td>
+			<td style=" width:30%;">
+				<div style="padding:0px 10px;">
+					<select name="newtype">
+					<option value="0"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.rectangle" /></option>
+					<option value="1"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.circle" /></option>
+						<option value="2"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.polygon" /></option>
+						<option value="3"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.default" /></option>
+					</select>
+				</div>
+			</td>
+			<td style="padding:0px 10px 0px 0px; width:30%;">
+				<div style="float:left;">
+					<f:format.raw>{urlfield}</f:format.raw>
+				</div>
+				<div style="float:left; width:30px;"></div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" style="padding:7px 0px 10px 10px;"><input type="button" id="addarea" value="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.add" />" /></td>
+		</tr>
+	</table>
+<!-- ###ADD_PART### -->
+
+<f:if condition="{area}">
+<!-- ###EDIT_PART### -->
+<div id="xcontent" name="xcontent">
+	<input type="hidden" name="area_page" value="1" />
+	<input type="hidden" id="area_id" name="area_id" value="{area.area.uid}" />
+	<input type="hidden" id="type" name="type" value="{area.area.areatype}" />
+	<a href="Javascript:a_toggle('l_area');"><h3 class="uppercase"><div class="icon minus" id="l_areatoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.edit_link_area" /></h3></a>
+	<table cellpadding="0" id="l_area" cellspacing="0" style="border:1px solid #999999; margin:5px 0px 10px 0px; width:100%;">
+		<tr>
+			<td valign="top" style="padding:8px;">
+			<div id="area_shape_img" class="shape{area.area.areatype}" style="background-color:#{area.area.color};" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.type" />: {area.area.areatypelabel}"></div>&nbsp;<strong>{area.area.description}</strong>
+				
+				<table class="toolwrap" cellpadding="0" cellspacing="0" style="margin:5px 0px 10px 0px; width:100%;">
+					<tr>
+						<td style="padding:5px;width:100%;" id="top"><div><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.description" />:</div>
+							<input type="text" id="descript" name="descript" value="{area.area.description}" style="width:100%;" />
+						</td>
+						<td valign="bottom" style="padding-bottom:5px;white-space:nowrap;">
+						<f:if condition="{blink}==1">
+							<f:then>
+								<input type="checkbox" id="blink" name="blink" value="1" onClick="change_blink();" checked="checked" />
+							</f:then>
+							<f:else>
+								<input type="checkbox" id="blink" name="blink" value="1" onClick="change_blink();" />
+							</f:else>
+						</f:if>
+						&nbsp;<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.do_blink" />&nbsp;</td>
+					</tr>
+				</table>
+				
+				<a href="Javascript:a_toggle('frame');"><h3 class="uppercase"><div class="icon minus" id="frametoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.border" /></h3></a>
+				<script type="Text/Javascript">
+				var ocols	= '{ocols}';
+				var delcol = '{addcolors}';
+				</script>
+				<table id="frame" class="toolwrap" cellpadding="0" cellspacing="0" style="display:block; margin:0px 0px 10px 0px; width:100%;">
+					<tr>
+						<td style="padding:5px;">
+							<div><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.color" />:</div>
+							<select name="color" id="sel_col" onChange="change_color();" style="width:165px;margin-right:0px;">
+							
+							
+								<f:for each="{becolors}" as="becolor">
+								
+									<f:if condition="{becolor.color}=={area.area.color}">
+										<f:then>
+											<option value="{becolor.color}" data-id="{becolor.id}" data-fixed="{becolor.fixed}" style="background-color:#{becolor.color}" selected="selected"><f:format.raw>{becolor.colorname}</f:format.raw></option>
+										</f:then>
+										
+										<f:else>
+											<option value="{becolor.color}" data-id="{becolor.id}" data-fixed="{becolor.fixed}" style="background-color:#{becolor.color}"><f:format.raw>{becolor.colorname}</f:format.raw></option>
+										</f:else>
+									</f:if>
+									
+								</f:for>
+							</select>
+						
+						<f:if condition="{addcolors}==1">
+							<span style="padding-bottom:8px;margin-left:0px;display:none;" id="coldel"><div class="icon bin" id="delcolor" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.del" />"></div></span>
+							<script type="Text/Javascript">
+								x_focus			 = 0;
+								xtc					 = setInterval("check_be_colname()",200);
+								var coldelmsg = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.delconf1" />';
+							</script>
+							<div style="margin-top:10px;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.addcolor" /></div>
+							<span style="padding-bottom:8px;"> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.name" />:</span>
+							<input type="text" id="be_colname" name="be_colname" value="" style="width:150px;" maxlength="20" onfocus="Javascript:x_focus=1;" onblur="Javascript:x_focus=0;" />&nbsp;&nbsp;<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.color" />:
+							<input type="text" id="be_col" name="be_col" value="" style="width:70px;" maxlength="7" onblur="validateColor('be_col','be_col_but','be_colname')" />
+							<input name="be_col_but" type="button" id="be_col_but" style="background-color:#FFFFFF;border:1px solid #000000;width:16px;height:16px;" class="jscolor {required:false,required:false,valueElement:'be_col',width:243, height:150,closable:true,closeText:'X'}" value=" "/>
+							&nbsp;&nbsp;<input name="add_color" type="button" id="add_color" value="OK" />
+							<script type="Text/Javascript">
+								function check_be_colname() {
+									elmval = document.getElementById('be_colname');
+									if(elmval.value.length == 0) {
+										if(x_focus == 0) {
+											if(document.getElementById('be_col').value.length != 0) { elmval.value = document.getElementById('be_col').value; }
+										}
+									}
+									else {
+										if(x_focus == 0) { elmval.value = elmval.value.replace(/\,/,"_"); }
+									}
+								}
+							</script>
+						</f:if>
+						</td>
+					</tr>
+				</table>
+				
+				<!-- rectangle -->
+				<f:if condition="{area.area.areatype}==0">
+					<script type="text/javascript">
+						debug = 0;
+						function imgonclick(Event) {
+							var xelem;
+							var yelem;
+							var posx = -1;
+							var posy = -1;
+	
+							if ( jg_ie ) {
+								posx += 1;
+								posy += 1;
+							}
+
+							if ( wrong_coord ){
+								posx = wx;
+								posy = wy;
+							}
+
+							if ( is_a_obj(Event) ) { return; }
+
+							try {
+								if ( typeof Event.layerX == 'undefined' ) { throw("bla");	}
+								if(navigator.appName == 'Microsoft Internet Explorer' && (navigator.appVersion.indexOf('MSIE 10') != -1 || navigator.appVersion.indexOf('MSIE 9') != -1)) {
+									posx += window.event.offsetX;
+									posy += window.event.offsetY;
+								}
+								else {
+									posx += Event.layerX;
+									posy += Event.layerY;
+								}
+							}
+							catch(e) {
+								try {
+									posx += window.event.offsetX;
+									posy += window.event.offsetY;
+								}
+								catch(e) {
+									try {
+										posx += Event.layerX;
+										posy += Event.layerY;
+									}
+									catch(e) {
+										alert(e+" Onclick functionality not supported!");
+										return 1;
+									}
+								}
+							}
+						try {
+							if ( document.getElementById("occ").checked ){
+								if ( posx <= document.getElementById('xpos').value || posy <= document.getElementById('ypos').value ) { return; }
+								document.getElementById("xsize").value = posx - document.getElementById("xpos").value;
+								document.getElementById("ysize").value = posy - document.getElementById("ypos").value;
+							}
+							else {
+								document.getElementById("xpos").value = posx;
+								document.getElementById("ypos").value = posy;
+							}
+							objs[selectedid].reset_dom('xpos', 'ypos', 'xsize', 'ysize');
+						}
+						catch (e)	{ alert("fehler"+e); }
+					}
+					</script>
+<h3 class="uppercase"><a href="Javascript:a_toggle('sizepos');"><div class="icon minus" id="sizepostoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div></a> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.sizepos" /></h3>
+<table id="sizepos" class="toolwrap" cellpadding="0" cellspacing="0" style="display:block;margin:5px 0px 10px 0px; width:100%;">
+	<tr>
+		<td style="padding:5px;">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top">
+						<table width="100%" border="0" cellpadding="0">
+							<tr>
+								<td colspan="2"><input type="radio" id="occ" name="occ" value="lr" checked />&nbsp;<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.setsize" /></td>
+							</tr>
+							<tr>
+								<td width="55"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.xsize" />:</td>
+								<td><input type="text" id="xsize" name="xsize" value="{area.points.w}" onChange="objs['{area.area.uid}'].reset_dom('xpos', 'ypos', 'xsize', 'ysize');" /></td>
+							</tr>
+							<tr>
+								<td><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.ysize" />:</td>
+								<td><input type="text" id="ysize" name="ysize" value="{area.points.h}" onChange="objs['{area.area.uid}'].reset_dom('xpos', 'ypos', 'xsize', 'ysize');" /></td>
+							</tr>
+						</table>
+					</td>
+					<td>&nbsp;&nbsp;</td>
+					<td valign="top">
+						<table width="100%" border="0" cellpadding="0">
+							<tr>
+								<td colspan="2"><input type="radio" name="occ" value="ul" />&nbsp;<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.setpos" /></td>
+							</tr>
+							<tr>
+								<td><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.xpos" />:</td>
+								<td><input type="text" id="xpos" name="xpos" value="{area.points.x}" onChange="objs['{area.area.uid}'].reset_dom('xpos', 'ypos', 'xsize', 'ysize');" /></td>
+							</tr>
+							<tr>
+								<td><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.ypos" />:</td>
+								<td><input type="text" id="ypos" name="ypos" value="{area.points.y}" onChange="objs['{area.area.uid}'].reset_dom('xpos', 'ypos', 'xsize', 'ysize');" /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+				</f:if>
+<!-- rectangle end -->
+
+
+<!-- circle -->
+<f:if condition="{area.area.areatype}==1">
+<script type="text/javascript">
+
+function imgonclick(Event)
+{
+	var xelem;
+	var yelem;
+	var posx = -1;
+	var posy = -1;
+	
+	if ( jg_ie )
+	{
+		posx += 1;
+		posy += 1;
+	}
+
+	if ( wrong_coord )
+	{
+		posx = wx;
+		posy = wy;
+	}
+
+	if ( is_a_obj(Event) ) return;
+
+	try {
+		if ( typeof Event.layerX == 'undefined' ) { throw("bla");	}
+		if(navigator.appName == 'Microsoft Internet Explorer' && (navigator.appVersion.indexOf('MSIE 10') != -1 || navigator.appVersion.indexOf('MSIE 9') != -1)) {
+			posx += window.event.offsetX;
+			posy += window.event.offsetY;
+		}
+		else {
+			posx += Event.layerX;
+			posy += Event.layerY;
+		}
+	} catch(e) {
+		try {
+			posx += window.event.offsetX;
+			posy += window.event.offsetY;
+		} catch(e) {
+			try {
+				posx += Event.layerX;
+				posy += Event.layerY;
+			}
+			catch(e) {
+				alert(e+" Onclick functionality not supported!"); return 1;
+			}
+		}
+	}
+	
+	
+
+	try {
+		px = document.getElementById("xpos");
+		py = document.getElementById("ypos");
+		pr = document.getElementById("radius");
+		if ( document.getElementById("ocfun").checked )
+		{
+			px.value = posx;
+			py.value = posy;
+		} else {
+			posx = Math.abs( px.value - posx );
+			posy = Math.abs( py.value - posy );
+			pr.value = Math.round( Math.sqrt( Math.pow(posx, 2) + Math.pow(posy, 2) ) );
+		}
+		objs[selectedid].reset_dom('xpos', 'ypos', 'radius');
+	} catch (e)	{ alert("fehler"+e); }
+}
+
+</script>
+<h3 class="uppercase"><a href="Javascript:a_toggle('sizepos');"><div class="icon minus" id="sizepostoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div></a> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.sizepos" /></h3>
+<table id="sizepos" class="toolwrap" cellpadding="0" cellspacing="0" style="display:block; margin:5px 0px 10px 0px; width:100%;" >
+	<tr>
+		<td style="padding:5px;">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td valign="top">
+						<table width="100%" border="0" cellpadding="0">
+							<tr>
+								<td colspan="2"><input type="radio" id="occ" name="occ" value="lr" checked />&nbsp;<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.ocsr" />:</td>
+							</tr>
+							<tr>
+								<td width="55"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.radius" />:</td>
+								<td><input type="text" id="radius" name="radius" value="{area.points.r}" onchange="objs[selectedid].reset_dom('xpos', 'ypos', 'radius');" /></td>
+							</tr>
+						</table>
+					</td>
+					<td>&nbsp;&nbsp;</td>
+					<td valign="top">
+						<table width="100%" border="0" cellpadding="0">
+							<tr>
+								<td colspan="2"><input type="radio" name="occ" id="ocfun" value="ul" />&nbsp;<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.ocscc" /></td>
+							</tr>
+							<tr>
+								<td><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.xpos" />:</td>
+								<td><input type="text" id="xpos" name="xpos" value="{area.points.x}" onchange="objs[selectedid].reset_dom('xpos', 'ypos', 'radius');" /></td>
+							</tr>
+							<tr>
+								<td><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.ypos" />:</td>
+								<td><input type="text" id="ypos" name="ypos" value="{area.points.y}" onchange="objs[selectedid].reset_dom('xpos', 'ypos', 'radius');" /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+				</f:if>
+<!-- circle end -->
+
+
+<!-- ###POLY_PART### -->
+<f:if condition="{area.area.areatype}==2">
+<script type="text/javascript">
+var polynum = {area.points.num};
+var akt_polynum = polynum;
+var pchecked = 0;
+var obj_per_tr = 5;
+var col1 = "#ede9e5";
+var col2 = "#cdc7c3";
+var pt_num_txt = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.point_number1" /> ';
+var pt_edit_txt = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.editpoint" />: ';
+var pt_del_txt = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.delete_point1" /> ';
+var pt_x_txt = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.xpos" />: ';
+var pt_y_txt = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.ypos" />: ';
+var pos_opt_txt = '. <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.position" />';
+var deleted_pts = 0;
+var pt_deleted_txt = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.deleted" />';
+var _delete = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.delete" />';
+</script>
+<script type="text/javascript" src="../typo3conf/ext/mmimagemap/Resources/Public/Js/poly.js"></script>
+<input type="hidden" id="polynum" name="polynum" value="{area.points.num}" />
+	<a href="Javascript:a_toggle('addpoint');"><h3 class="uppercase"><div class="icon minus" id="addpointtoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.add_point" />:</h3></a>
+	<table id="addpoint" class="toolwrap" cellpadding="0" cellspacing="0" style="display:block; margin:5px 0px 10px 0px; width:100%;" onMouseOver="Javascript:objs[selectedid].reset_dom();" >
+	<tr>
+		<td style="padding:5px;" colspan="2"><input type="checkbox" id="rpoly" name="rpoly" value="add" onClick="myrpoly(0); objs[selectedid].reset_dom();" checked="checked" />&nbsp;<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.polyclick" /></td>
+	</tr>
+	<tr>
+		<td style="padding:5px;" colspan="2"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.xpos" />:&nbsp;<input type="text" id="xpos0" name="xpos" style="width:80px;" />&nbsp;&nbsp;&nbsp;<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.ypos" />:&nbsp;<input type="text" id="ypos0" name="ypos" style="width:80px;" /></td>
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.close" />&nbsp;</td>
+		
+		<f:if condition="{close}==1">
+			<f:then>
+				<td style="padding:5px;width:100%;"><input type="checkbox" id="close" name="close" onClick="objs[selectedid].reset_dom();" value="1" checked="checked" /></td>
+			</f:then>
+			
+			<f:else>
+				<td style="padding:5px;width:100%;"><input type="checkbox" id="close" name="close" onClick="objs[selectedid].reset_dom();" value="1" /></td>
+			</f:else>
+		</f:if>
+		
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.mark_startpoint" />&nbsp;</td>
+		
+		<f:if condition="{epoint}==1">
+			<f:then>
+				<td style="padding:5px;width:100%;"><input type="checkbox" id="endpoint" name="epoint" onClick="objs[selectedid].reset_dom();" value="1" checked="checked" /></td>
+			</f:then>
+			
+			<f:else>
+				<td style="padding:5px;width:100%;"><input type="checkbox" id="endpoint" name="epoint" onClick="objs[selectedid].reset_dom();" value="1" /></td>
+			</f:else>
+		</f:if>
+		
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.mark_endpoint" />&nbsp;</td>
+		
+		<f:if condition="{spoint}==1">
+			<f:then>
+				<td style="padding:5px;width:100%;"><input type="checkbox" id="startpoint" name="spoint" onClick="objs[selectedid].reset_dom();" value="1" checked="checked" /></td>
+			</f:then>
+			
+			<f:else>
+				<td style="padding:5px;width:100%;"><input type="checkbox" id="startpoint" name="spoint" onClick="objs[selectedid].reset_dom();" value="1" /></td>
+			</f:else>
+		</f:if>
+		
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.position" />:ewr&nbsp;</td>
+		<td style="padding:5px;width:100%;">
+			<select id="pos" name="pos">
+				<option value="end"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.lastposition" /></option>
+				<option value="begin"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.firstposition" /></option>
+			</select>	
+		</td>
+	</tr>
+	<tr>
+		<td style="padding:5px;" colspan="2">
+			<input type="button" value="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.add_point" />" id="add_b" onclick="add_point(); build_pos_sel(); objs[selectedid].reset_dom();" />
+		</td>	
+	</tr>
+</table>
+<script type="text/javascript">
+build_pos_sel();
+</script>
+
+<!-- polygon points --></div>
+<a href="Javascript:a_toggle('points');"><h3 class="uppercase"><div class="icon minus" id="pointstoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.editpoints" /></h3></a>
+			<input type="hidden" name="actpoint" id="actpoint" value="" />
+			<table id="points" cellpadding="0" cellspacing="0" style="display:block;border:1px solid #999999; margin:5px 0px 10px 0px; width:100%;">
+				<tr>
+					<td align="center">
+						<table align="center" style="width:448px;height:100px;border-collapse: separate;border-spacing:8px;"><tbody id="poly_tbl"><tr>
+
+<f:for each="{area.points.points}" as="apoint">
+	<td id="p_{apoint.num}"	class="toolwrap_point" style="padding:5px;width:20%;" onMouseOver="Javascript:tbg_ov3(this)" onMouseOut="Javascript:tbg_out3(this)">
+		<input name="hidden" type="hidden" id="persistent{apoint.num}" value="1" />
+		<div id="pt_div{apoint.num}" style="padding-bottom:7px;font-weight:bold;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.point_number" /> {apoint.num}:</div>
+		<div style="padding-bottom:5px;white-space:nowrap;"> <img src="../typo3conf/ext/mwimagemap/mod1/img/pencil.gif" id="rpoly{apoint.num}" width="14" height="14" onClick="myrpoly({apoint.num}); objs[selectedid].reset_dom();">&nbsp;&nbsp;&nbsp;
+			<input id="del{apoint.num}" type="checkbox" name="del{apoint.num}" value="1" onClick="del_click({apoint.num}); build_pos_sel(); objs[selectedid].reset_dom();" />
+			<div class="icon bin" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.delete" />">
+		</div><br />
+		<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.xpos" />:&nbsp;<input type="text" id="xpos{apoint.num}" name="xpos{apoint.num}" value="{apoint.x}" size="4" onFocus="myrpoly({apoint.num}); objs[selectedid].reset_dom();" onChange="objs[selectedid].reset_dom();" /><br />
+		<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.ypos" />:&nbsp;<input type="text" id="ypos{apoint.num}" name="ypos{apoint.num}" value="{apoint.y}" size="4" onFocus="myrpoly({apoint.num}); objs[selectedid].reset_dom();" onChange="objs[selectedid].reset_dom();" />
+	</td>
+</f:for>
+
+</tr></tbody></table></td></tr></table>
+<!-- polygon points -->
+
+
+</f:if>
+<!-- ###POLY_PART### -->
+	
+	<a href="Javascript:a_toggle('link');"><h3 class="uppercase"><div class="icon minus" id="linktoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.link" />:</h3></a>
+	<table id="link" class="toolwrap" cellpadding="0" cellspacing="0" style="display:block;margin:5px 0px 10px 0px; width:100%;">
+		<tr>
+			<td style="padding:5px;"><div><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.link" />:</div>
+				<div style="width:100%"><f:format.raw>{editurlfield}</f:format.raw></div>
+				<div style="padding-top:10px"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.param" /></div>
+				<input type="text" id="param" name="param" value="{area.area.param}" style="width:100%;" />
+			</td>
+		</tr>
+	</table>	
+				
+				
+<input type="hidden" id="s_bcol" value="{area.area.febordercolor}" />
+<input type="hidden" id="s_bthc" value="{area.area.feborderthickness}" />
+<a href="Javascript:a_toggle('feoptions');"><h3 class="uppercase"><div class="icon minus" id="feoptionstoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.fe_options" /></h3></a>
+<table id="feoptions" class="toolwrap" style="width:100%;">
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.fe_hidden" />:&nbsp;</td>
+		
+		<f:if condition="{area.area.fevisible}==0">
+			<f:then>
+				<td style="padding:5px;width:100%;" colspan="2"><input type="radio" id="fe_visible1" name="fe_visible" value="0" checked="checked" onclick="checkvisible()" /></td>
+			</f:then>
+			
+			<f:else>
+				<td style="padding:5px;width:100%;" colspan="2"><input type="radio" id="fe_visible1" name="fe_visible" value="0" onclick="checkvisible()" /></td>
+			</f:else>
+		</f:if>
+				
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.fe_visible" />:&nbsp;</td>
+		
+		<f:if condition="{area.area.fevisible}==1">
+			<f:then>
+				<td style="padding:5px;width:100%;" colspan="2"><input type="radio" id="fe_visible2" name="fe_visible" value="1" checked="checked" onclick="checkvisible()" /></td>
+			</f:then>
+			<f:else>
+				<td style="padding:5px;width:100%;" colspan="2"><input type="radio" id="fe_visible2" name="fe_visible" value="1" onclick="checkvisible()" /></td>
+			</f:else>
+		</f:if>
+		
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.fe_mouseover" />:&nbsp;</td>
+		
+		<f:if condition="{area.area.fevisible}==2">
+			<f:then>
+				<td style="padding:5px;width:100%;" colspan="2"><input type="radio" id="fe_visible3" name="fe_visible" value="2" checked="checked" onclick="checkvisible()" /></td>
+			</f:then>
+			<f:else>
+				<td style="padding:5px;width:100%;" colspan="2"><input type="radio" id="fe_visible3" name="fe_visible" value="2" onclick="checkvisible()" /></td>
+			</f:else>
+		</f:if>
+		
+		<td style="padding:5px;width:100%;">(GET: mwi_area={area.area.uid})</td>
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.fe_bordercolor" />:&nbsp;</td>
+		<td style="padding:5px;width:100%;" colspan="2">
+			<input type="text" id="fe_bcol" name="fe_bcol" value="{area.area.febordercolor}" style="width:70px;" maxlength="7" />
+			<input type="button" id="fe_bcol_but" class="jscolor {required:false,required:false,valueElement:'fe_bcol',width:243, height:150,closable:true,closeText:'X',onmouseup:'closecolor(\'fe_bcol_but\')'}" value=" " style="background-color:{area.area.febordercolor};border:1px solid #000000;width:16px;height:16px;"/>
+		</td>
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.fe_borderthickness" />:&nbsp;</td>
+		<td style="padding:5px;width:100%;" colspan="2"><input type="text" id="fe_borderthickness" name="fe_borderthickness" value="{area.area.feborderthickness}" maxlength="2" style="width:30px;" /></td>
+	</tr>
+</table>
+
+<a href="Javascript:a_toggle('cbox');"><h3 class="uppercase"><div class="icon minus" id="cboxtoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.contentbox" /></h3></a>
+<table id="cbox" class="toolwrap" style="width:100%;">
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><div id="cbwarning" style="float:left;margin-right:7px;display:none;"><img src="../typo3conf/ext/mwimagemap/mod1/gfx/warning.png" alt="" title="###CB_WARNING###" /></div><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.contentboxid" />:&nbsp;</td>
+		<td style="padding:5px;width:100%;" colspan="2">
+		<div id="cbtext" style="float:left;width:180px;overflow:hidden;border:1px solid #999999;height:25px;background-color:#FFFFFF;margin-right:7px;" title="{area.contentpopup.contentid}">{area.contentpopup.contentid}</div>
+		<div id="cbdel" style="float:left;margin-right:7px;"><div class="icon cross" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.delelement" />"></div></div>
+		<input type="hidden" id="cbid" name="cbid" value="{area.contentpopup.contentid}" />
+		<a href="#" onclick="this.blur(); vHWin=window.open('{elementbrowser}&browser=1&mode=db&bparams=cbid|||tt_content|','','height=500,width=700,status=0,menubar=0,scrollbars=1');vHWin.focus();return false;"><div class="icon folder"></div></a>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.contentboxactivated" />:&nbsp;</td>
+		
+		<f:if condition="{area.contentpopup.active}==1">
+			<f:then>
+				<td style="padding:5px;width:100%;" colspan="2"><input type="checkbox" id="cb_active" name="cb_active" value="1" checked="checked" onclick="checkcbactive()" /></td>
+			</f:then>
+			
+			<f:else>
+				<td style="padding:5px;width:100%;" colspan="2"><input type="checkbox" id="cb_active" name="cb_active" value="1" onclick="checkcbactive()" /></td>
+			</f:else>
+		</f:if>
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.xsize" />:&nbsp;</td>
+		<td style="padding:5px;width:100%;" colspan="2"><input type="text" id="cb_width" name="cb_width" value="{area.contentpopup.popupwidth}" maxlength="4" style="width:30px;" /></td>
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.ysize" />:&nbsp;</td>
+		<td style="padding:5px;width:100%;" colspan="2"><input type="text" id="cb_height" name="cb_height" value="{area.contentpopup.popupheight}" maxlength="4" style="width:30px;" /></td>
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.xpos" />:&nbsp;</td>
+		<td style="padding:5px;width:100%;" colspan="2"><input type="text" id="cb_x" name="cb_x" value="{area.contentpopup.popupx}" maxlength="4" style="width:30px;" /></td>
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.ypos" />:&nbsp;</td>
+		<td style="padding:5px;width:100%;" colspan="2"><input type="text" id="cb_x" name="cb_y" value="{area.contentpopup.popupy}" maxlength="4" style="width:30px;" /></td>
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.fe_bordercolor" />:&nbsp;</td>
+		<td style="padding:5px;width:100%;" colspan="2">
+			<input type="text" id="cb_bcol" name="cb_bcol" value="{area.contentpopup.popupbordercolor}" style="width:70px;" maxlength="7" />
+			<input type="button" id="cb_bcol_but" class="jscolor {required:false,valueElement:'cb_bcol',width:243, height:150,closable:true,closeText:'X'}" value="" style="background-color:#{area.contentpopup.popupbordercolor};border:1px solid #000000;width:16px;height:16px;"/>
+		</td>
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.fe_bgcolor" />:&nbsp;</td>
+		<td style="padding:5px;width:100%;" colspan="2">
+			<input type="text" id="cb_bgcol" name="cb_bgcol" value="{area.contentpopup.popupbackgroundcolor}" style="width:70px;" maxlength="7" />
+			<input type="button" id="cb_bgcol_but" value="" style="background-color:{area.contentpopup.popupbackgroundcolor};border:1px solid #000000;width:16px;height:16px;" class="jscolor {required:false,valueElement:'cb_bgcol',width:243, height:150,closable:true,closeText:'X'}"/>
+		</td>
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.fe_borderthickness" />:&nbsp;</td>
+		<td style="padding:5px;width:100%;" colspan="2"><input type="text" id="cb_borderthickness" name="cb_borderthickness" value="{area.contentpopup.popupborderwidth}" maxlength="2" style="width:30px;" /></td>
+	</tr>
+</table>
+				
+				
+				<input type="button" id="savearea" name="submittext" value="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.save" />" style="margin-top:5px;">	
+			</td>
+		</tr>
+	</table>
+</div>
+<!-- ###EDIT_PART### -->
+</f:if>
+
+
+
+<!-- ###LIST_PART### -->
+<a href="Javascript:a_toggle('arealist');"><h3 class="uppercase"><div class="icon minus" id="arealisttoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.link_arealist" /></h3></a>
+		<table cellpadding="0" id="arealist" cellspacing="0" style="border:1px solid #999999; margin:5px 0px 10px 0px; width:100%;">
+			<tr>
+				<td valign="top" style="padding:8px;width:451px;">
+				<f:for each="{arealist}" as="areaitem" iteration="areaiterator">
+					<table class="toolwrap" id="x_area_{areaitem.uid}" cellpadding="0" cellspacing="0" style="margin:5px 0px 10px 0px; width:100%;" onclick="Javascript:goClick(0,'<f:uri.action action='edit' controller='Backend' arguments='{mapid:areaitem.mapid,areaid:areaitem.uid,setarea:1}' />',0);" />
+						<tr>
+							<td style="padding:5px;" valign="top">
+								<table style="width:100%;" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td width="5%" style="padding-bottom:2px;"><input class="areacheck" data-id="{areaitem.uid}" type="checkbox" value="{areaitem.uid}" id="sel_{areaiterator}" onclick="Javascript:goClick(0,'#',1);" /></td>
+										<td width="95%" valign="bottom">&nbsp;<a id="editarea_{areaitem.uid}" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.type" />: {areaitem.areatypelabel}" href="<f:uri.action action='edit' controller='Backend' arguments='{mapid:areaitem.mapid,areaid:areaitem.uid,setarea:1}' />" onClick="return check_chg_vars();"><div class="shape{areaitem.areatype}" style="background-color:#{areaitem.color};" id="i_{areaitem.uid}" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.type" />: {areaitem.areatypelabel}"></div>&nbsp;<strong>{areaitem.description}&nbsp;</strong></a><a href="#" onClick="Javascript:goClick(0,'#',1);return check_chg_vars();" class="delarea" data-areaid="{areaitem.uid}"><div id="" class="icon bin" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.del" />"></div></a></td>
+									</tr>
+									<tr>
+										<td colspan="2"><div style="padding:7px 0px 0px 0px;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.link" />:&nbsp;<a href="{areaitem.arealink}" target="_blank">{areaitem.arealink}</a></div></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</f:for>
+
+<script type="text/javascript">
+function set_areaids()
+{
+	var i = 0;
+	var el = false;
+	var hidden = document.getElementById('areaids');
+	hidden.value = '';
+	while ( ( el = document.getElementById('sel_'+i) ) )
+	{
+		if ( el.checked )
+			hidden.value += (hidden.value?',':'')+el.value;
+		++i;
+	}
+}
+</script>
+
+				<h3 class="uppercase"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.selectedareas" /></h3>
+				<div class="toolwrap" style="margin:5px 0px 0px 0px; width:100%;">
+					<div style="padding:10px;">
+							<table cellpadding="0" cellspacing="0">
+								<tr>
+									<td style="padding:0px 4px 4px 0px;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.movex" />:</td>
+									<td style="padding:0px 4px 4px 0px;"><input type="text" size="2" name="xmov" /></td>
+								</tr>
+								<tr>
+									<td><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.movey" />:</td>
+									<td><input type="text" size="2" name="ymov" /></td>
+								</tr>
+								<tr>
+									<td colspan="2" style="padding-top:7px;"><input id="xymove" type="button" value="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.move" />" return check_chg_vars();" /></td>
+								</tr>
+							</table>
+					</div>
+				</div>
+		</td>
+	</tr>
+</table>
+<script type="Text/Javascript">setLborder('{area.area.uid}');</script>
+<!-- ###LIST_PART### -->
+
+
+<!-- ###JS_PART### -->
+<script type="text/javascript">
+
+var wrong_coord = false;
+var wx = 0;
+var wy = 0;
+var wrong_coord1 = false;
+var wx1 = 0;
+var wy1 = 0;
+var wrong_coord2 = false;
+var wx2 = 0;
+var wy2 = 0;
+var moustime = 0;
+var mouseposx = 0;
+var mouseposy = 0;
+var ismousedown = false;
+var ismouseup = false;
+var selectedid = "{area.area.uid}";
+var oncl = 'lineclick(';
+var jg = new jsGraphics("canvas");
+var objs = new Object();
+var changes = 0;
+var chg_blink;
+var chg_color;
+var chg_link;
+var chg_descript;
+var chg_param;
+var chg_point = new Array();
+
+<f:for each="{arealist}" as="listitem">
+	<f:if condition="{listitem.areatype}==0">
+	objs["{listitem.uid}"] = new rectangle({listitem.points.x},{listitem.points.y},{listitem.points.w},{listitem.points.h},{listitem.uid},'#{listitem.color}');
+	</f:if>
+
+	<f:if condition="{listitem.areatype}==1">
+		objs["{listitem.uid}"] = new circle({listitem.points.x},{listitem.points.y},{listitem.points.r},{listitem.uid},'#{listitem.color}');
+	</f:if>
+
+	<f:if condition="{listitem.areatype}==2">
+		objs["{listitem.uid}"] = new polygon( new Array({listitem.points.x}), new Array({listitem.points.y}), {listitem.uid},'#{listitem.color}',{close},{spoint},{epoint});
+	</f:if>
+</f:for>
+
+if ( selectedid ) {
+	init_chg_vars();
+	if ( objs[selectedid] ) { change_blink(); }
+}	
+
+<f:if condition="{area.area.areatype}==0 || {area.area.areatype}==1 || {area.area.areatype}==2" >
+	document.getElementById("canvas").onclick = imgonclick;
+</f:if>
+
+<f:if condition="{area.area.areatype}==3">
+	document.getElementById("canvas").onclick = is_a_obj;
+</f:if>
+
+document.getElementById("canvas").onmousedown = mousedown;
+document.getElementById("canvas").onmouseup = mouseup;
+document.getElementById("canvas").onmousemove = mousemove;
+
+function mousemove(Event) {
+	var posx = -1;
+	var posy = -1;
+	
+	if ( jg_ie ) {
+		posx += 1;
+		posy += 1;
+	}
+
+	try {
+		if ( typeof Event.layerX == 'undefined') { throw("");	}
+		if(navigator.appName == 'Microsoft Internet Explorer' && (navigator.appVersion.indexOf('MSIE 10') != -1 || navigator.appVersion.indexOf('MSIE 9') != -1)) {
+			posx += window.event.offsetX;
+			posy += window.event.offsetY;
+		}
+		else {
+			posx += Event.layerX;
+			posy += Event.layerY;
+		}
+	} catch(e) {
+		try {
+			posx += window.event.offsetX;
+			posy += window.event.offsetY;
+		} catch(e) {
+		
+			try {
+				mouseposx += Event.layerX;
+				mouseposy += Event.layerY;
+			}
+			catch(e) {
+				alert(e+" Onclick functionality not supported!"); return 1;
+			}
+		}
+	}
+ 
+	if ( wrong_coord2 ) {
+		posx += wx2;
+		posy += wy2;
+		wrong_coord2 = false;
+	}
+	var a = new Date();
+	if ( ismousedown && a.getTime() - mousetime > 50 && selectedid && objs[selectedid] ) {
+		objs[selectedid].drag(mouseposx, mouseposy, posx, posy);
+	}
+	document.getElementById('xx').firstChild.nodeValue = posx;
+	document.getElementById('yy').firstChild.nodeValue = posy;
+}
+
+function mouseup(Event) {
+	ismousedown = false;
+	var posx = -1;
+	var posy = -1;
+	
+	if ( jg_ie ) {
+		posx += 1;
+		posy += 1;
+	}
+
+	try {
+		if ( typeof Event.layerX == 'undefined' ) { throw("bla");	}
+		if(navigator.appName == 'Microsoft Internet Explorer' && (navigator.appVersion.indexOf('MSIE 10') != -1 || navigator.appVersion.indexOf('MSIE 9') != -1)) {
+			posx += window.event.offsetX;
+			posy += window.event.offsetY;
+		}
+		else {
+			posx += Event.layerX;
+			posy += Event.layerY;
+		}
+	} catch(e) {
+		try {
+			posx += window.event.offsetX;
+			posy += window.event.offsetY;
+		} catch(e) {
+			try {
+				mouseposx += Event.layerX;
+				mouseposy += Event.layerY;
+			}
+			catch(e) {
+				alert(e+" Onclick functionality not supported!"); return 1;
+			}
+		}
+	}
+
+	if ( wrong_coord1 ) {
+		posx += wx1;
+		posy += wy1;
+		wrong_coord1 = false;
+	}
+	var a = new Date();
+	if ( a.getTime() - mousetime > 300 && selectedid && objs[selectedid] ) {
+		objs[selectedid].drag(mouseposx, mouseposy, posx, posy);
+		ismouseup = true;
+	}
+}
+
+function mousedown(Event) {
+	ismousedown = true;
+	mouseposx = -1;
+	mouseposy = -1;
+	
+	if ( jg_ie ) {
+		mouseposx += 1;
+		mouseposy += 1;
+	}
+
+	try {
+		if ( typeof Event.layerX == 'undefined' ) { throw("bla");	}
+		if(navigator.appName == 'Microsoft Internet Explorer' && (navigator.appVersion.indexOf('MSIE 10') != -1 || navigator.appVersion.indexOf('MSIE 9') != -1)) {
+			posx += window.event.offsetX;
+			posy += window.event.offsetY;
+		}
+		else {
+			posx += Event.layerX;
+			posy += Event.layerY;
+		}
+	} catch(e) {
+		try {
+			mouseposx += window.event.offsetX;
+			mouseposy += window.event.offsetY;
+		} catch(e) {
+			try {
+				mouseposx += Event.layerX;
+				mouseposy += Event.layerY;
+			}
+			catch(e) {
+				alert(e+" Onclick functionality not supported!"); return 1;
+			}
+		}
+	}
+
+	if ( wrong_coord1 ) {
+		mouseposx += wx1;
+		mouseposy += wy1;
+		wrong_coord = false;
+	}
+	var a = new Date()
+	mousetime = a.getTime();
+}
+
+function mouseline(x,y) {
+	wrong_coord1 = true;
+	wx1 = x;
+	wy1 = y;
+}
+
+function mouseline2(x,y) {
+	wrong_coord2 = true;
+	wx2 = x;
+	wy2 = y;
+}
+
+// If somebody clicks exactly on the line of a object
+function lineclick(x,y) {
+	wrong_coord = true;
+	wx = x;
+	wy = y;
+}
+
+
+function is_a_obj(Event) {
+	if ( ismouseup ) { // we had a mousedrag, do nothin' foolish here ;-)
+		ismouseup = false;
+		return 1;
+	}
+
+	var posx = -1;
+	var posy = -1;
+	
+	if ( jg_ie ) {
+		posx += 1;
+		posy += 1;
+	}
+
+	try {
+		if ( typeof Event.layerX == 'undefined' ) { throw("bla");	}
+		if(navigator.appName == 'Microsoft Internet Explorer' && (navigator.appVersion.indexOf('MSIE 10') != -1 || navigator.appVersion.indexOf('MSIE 9') != -1)) {
+			posx += window.event.offsetX;
+			posy += window.event.offsetY;
+		}
+		else {
+			posx += Event.layerX;
+			posy += Event.layerY;
+		}
+	} catch(e) {
+		try {
+			posx += window.event.offsetX;
+			posy += window.event.offsetY;
+		} catch(e) {
+			try {
+				posx += Event.layerX;
+				mouseposy += Event.layerY;
+			}
+			catch(e) {
+				alert(e+" Onclick functionality not supported!"); return 1;
+			}
+		}
+	}
+	
+	if ( wrong_coord ) {
+		posx += wx;
+		posy += wy;
+		wrong_coord = false;
+	}	
+
+	// Coords within the img?
+	if ( posx > parseInt($('#canvas').css('width')) || posy > parseInt($('#canvas').css('height')) ) { return 1; } // stop caller
+	
+	for ( var i in objs ) {
+		if ( i != selectedid ) {
+			if ( objs[i].is_in_obj(posx, posy) ) {
+				if ( check_chg_vars() ) { edit_obj(i); } 
+				return 1; // stop caller
+			}
+		}
+	}
+	return 0; // the calling eventhandler can proceed
+}
+
+function edit_obj( id ) {
+	//window.location.href = "index.php?area_page=1&M=file_mwimagemapM1&moduleToken=###TOKEN###&map_id=###MID###&area_id="+id+"&id=###PATHID###";
+	window.location.href = $('#editarea_'+id).prop('href');
+}
+
+function change_blink() {
+	if ( document.getElementById('blink').checked ) { objs[selectedid].make_blink(); }
+	else { objs[selectedid].stop_blink(); }
+}
+
+function change_color() {
+	objs[selectedid].color = document.getElementById('sel_col').options[document.getElementById('sel_col').selectedIndex].value;
+	objs[selectedid].paint();
+	selcol = document.getElementById('sel_col').options[document.getElementById('sel_col').selectedIndex].value;	
+	document.getElementById("area_shape_img").style.backgroundColor = selcol;
+	document.getElementById("i_"+document.getElementById("area_id").value).style.backgroundColor = selcol;
+	if(document.getElementById('sel_col').selectedIndex > (ocols-1)) { document.getElementById('coldel').style.visibility = "visible"; }
+	else { document.getElementById('coldel').style.visibility = "hidden"; }
+	if(document.getElementById('s_bcol').value.length == 0) { document.getElementById('s_bcol').value = selcol; }
+	checkvisible();
+	checkfixedcolor();
+}
+
+function init_chg_vars() {
+	if(document.getElementById('blink')) { chg_blink = document.getElementById('blink').checked; }
+	if(document.getElementById('sel_col')) { chg_color = document.getElementById('sel_col').options[document.getElementById('sel_col').selectedIndex].value; }
+	if(document.getElementById('link')) { chg_link = document.getElementById('link').value; }
+	if(document.getElementById('descript')) { chg_descript = document.getElementById('descript').value; }
+	if(document.getElementById('param')) { chg_param = document.getElementById('param').value; }
+	switch( document.getElementById('type').value ) {
+		case '0': // Rectangle
+			if(document.getElementById('xsize')) {
+				chg_point[0] = document.getElementById('xsize').value;
+				chg_point[1] = document.getElementById('ysize').value;
+				chg_point[2] = document.getElementById('xpos').value;
+				chg_point[3] = document.getElementById('ypos').value;
+			}
+			break;
+		case '1': // Circle
+			if(document.getElementById('radius')) {
+				chg_point[0] = document.getElementById('radius').value;
+				chg_point[1] = document.getElementById('xpos').value;
+				chg_point[2] = document.getElementById('ypos').value;
+			}
+			break;
+		case '2': // Polygon
+			chg_point[0] = polynum;
+			for ( var i = 1; i <= polynum; ++i ) {
+				if(document.getElementById('xpos'+i)) {
+					chg_point[i*2-1] = document.getElementById('xpos'+i).value;
+					chg_point[i*2] = document.getElementById('ypos'+i).value;
+				}
+			}
+			break;
+	}
+}
+
+function check_chg_vars()
+{
+	if ( ! selectedid /*|| ! objs[selectedid]*/ ) { return true; }
+	var changed = false;
+	var type = document.getElementById('type').value;
+	while ( true ) {
+		if(document.getElementById('blink')) {
+			if ( chg_blink != document.getElementById('blink').checked ) { changed = true; break; }
+		}
+		if(document.getElementById('sel_col')) {
+			if ( chg_color != document.getElementById('sel_col').options[document.getElementById('sel_col').selectedIndex].value ) { changed = true; break; }
+		}
+		if(document.getElementById('link')) {
+			if ( chg_link != document.getElementById('link').value ) {changed = true; break; }
+		}
+		if(document.getElementById('descript')) {
+			if ( chg_descript != document.getElementById('descript').value ) { changed = true; break; }
+		}
+		if(document.getElementById('param')) {
+			if ( chg_param != document.getElementById('param').value ) { changed = true; break; }
+		}
+		switch( type ) {
+			case '0': // Rectangle
+				if(document.getElementById('xsize')) {
+					if ( chg_point[0] != document.getElementById('xsize').value ) { changed = true; }
+					if ( chg_point[1] != document.getElementById('ysize').value ) { changed = true; }
+					if ( chg_point[2] != document.getElementById('xpos').value ) { changed = true; }
+					if ( chg_point[3] != document.getElementById('ypos').value ) { changed = true; }
+				}
+				break;
+			case '1': // Circle
+				if(document.getElementById('radius')) {
+					if ( chg_point[0] != document.getElementById('radius').value ) { changed = true; }
+					if ( chg_point[1] != document.getElementById('xpos').value ) { changed = true; }
+					if ( chg_point[2] != document.getElementById('ypos').value ) { changed = true; }
+				}
+				break;
+			case '2': // Polygon
+				if ( chg_point[0] != akt_polynum ) { changed = true; break; }
+				for ( var i = 1; i <= polynum; ++i ) {
+					if(document.getElementById('xpos'+i)) {
+						if ( chg_point[i*2-1] != document.getElementById('xpos'+i).value ) { changed = true; break; }
+						if ( chg_point[i*2] != document.getElementById('ypos'+i).value ) { changed = true; break; }
+					}
+				}
+				break;
+		}
+		break;
+	}
+	if ( changed ) {
+		if ( confirm('<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.discard" />') ) { return true; }
+		else { return false; }
+	}
+	return true;
+}
+</script>
+<!-- ###JS_PART### -->
+</f:form>
+</f:section>

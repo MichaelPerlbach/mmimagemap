@@ -1,0 +1,53 @@
+{namespace k=MikelMade\Mmimagemap\ViewHelpers}
+<f:layout name="none" />
+
+<f:section name="content">
+
+<div style="position:relative">
+	<f:if condition="{map.overlay}">
+		<img src="{map.overlay}" width="{map.width}" height="{map.height}" usemap="#map_{map.uid}" style="position:absolute;left:0px;top:0px;z-index:3;border:0px;" />
+	</f:if>
+	<img src="typo3conf/ext/mmimagemap/Resources/Public/Images/canvas.png" width="{map.width}" height="{map.height}" id="tx_mmimagemap_img_{map.uid}" usemap="#map_{map.uid}" alt="{map.name}" style="position:absolute;left:0px;top:0px;z-index:2;border:0px;background-image:URL(fileadmin/{map.folder}{map.imgfile});background-repeat:no-repeat;" />
+	<map name="map_{map.uid}" id="map_{map.uid}">
+		<f:for each="{areas}" as="area">
+			<area style="cursor:pointer;" shape="{area.shape}" <f:format.raw>{area.params}</f:format.raw> coords="{area.coords}" href="<f:uri.typolink parameter="{area.link}" />"<f:format.raw>{area.target}</f:format.raw> />
+		</f:for>
+	</map>
+	<f:for each="{areas}" as="area">
+		<f:if condition="{area.fealtfile}">
+			<img src="uploads/tx_mmimagemap/{area.fealtfile}" id="tx_mmimagemap_altfefile_{area.uid}" alt="" usemap="#map_{map.uid}" style="border:0px;visibility:hidden;display:none;" />
+		</f:if>
+	</f:for>
+
+	<f:for each="{cboxes}" as="cbox">
+		<div class="txmmimagemap_cbox txmmimagemap_cbox_{cbox.uid}" id="txmmimagemap_cbox_{cbox.uid}" style="z-index: 50000;position:absolute;display:none;width:{cbox.popupwidth}px;height:{cbox.popupheight}px;left:{cbox.popupx}px;top:{cbox.popupy}px;{cbox.background}{cbox.border}{cbox.addcss}" onmouseover="Javascript:mmimagemap_cboxover('txmmimagemap_cbox_{cbox.uid}')" onmouseout="Javascript:mmimagemap_cboxout('txmmimagemap_cbox_{cbox.uid}')">
+			<f:format.html><k:content uid="{cbox.contentid}" /></f:format.html>
+		</div>
+	</f:for>
+</div>
+<script type="text/Javascript">
+	function mmimagemap_showCBox(_elm) {
+		document.getElementById(_elm).style.display = 'block';
+	}
+
+	function mmimagemap_hideCBox(_elm) {
+		document.getElementById(_elm).style.display = 'none';
+	}
+
+	function mmimagemap_changearea(_elm1,_elm2) {
+		document.getElementById(_elm1).src = document.getElementById(_elm2).src;
+	}
+
+	function mmimagemap_resetarea(_elm,_pic) {
+		document.getElementById(_elm).src = _pic;
+	}
+
+	function mmimagemap_cboxover(_elm) {
+		//document.getElementById(_elm).style.display='block';
+	}
+
+	function mmimagemap_cboxout(_elm) {
+		//document.getElementById(_elm).style.display='none';
+	}
+</script>
+</f:section>

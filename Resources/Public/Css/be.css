@@ -1,0 +1,61 @@
+.chgname{
+	cursor:pointer;
+}
+
+.toolwrap{
+	background-color:#EFEFF4;
+	border:1px solid #999999;
+}
+.toolwrap:hover{ background-color:#E3E2E2; }
+
+.toolwrap_point{
+	background-color:#EDE9E5;
+	border:1px solid #999999;
+}
+.toolwrap_point:hover{ background-color:#E3E2E2; }
+
+
+/* polygon */
+.shape2 {
+	width:20px;
+	height:20px;
+  -webkit-clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+	clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+	display:inline-block;
+	vertical-align:middle;
+}
+
+/* default */
+.shape3 {
+	width:19px;
+	height:19px;
+	display:inline-block;
+	vertical-align:middle;
+	position:relative;
+}
+.shape3:before{
+	content:"";
+	position:absolute;
+	width:15px;
+	height:15px;
+	left:2px;
+	top:2px;
+	background-color:#FFFFFF;
+}
+
+/* rectangle */
+.shape0{
+	width:19px;
+	height:19px;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+/* circle */
+.shape1{
+	width:20px;
+	height:20px;
+	border-radius:10px;
+	display:inline-block;
+	vertical-align:middle;
+}

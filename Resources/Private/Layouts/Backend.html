@@ -1,0 +1,49 @@
+{namespace v=MikelMade\Mmimagemap\ViewHelpers\Backend}
+
+<!--  
+Backend Layout
+
+@package Mmimagemap
+@author Michael Perlbach <info@mikelmade.de>
+-->
+<v:Resource />
+
+<f:be.container pageTitle="MM Imagemap"
+                includeCssFiles="{0: '{f:uri.resource(path:\'Css/mm_icons.css\')}',
+									1: '{f:uri.resource(path:\'Css/be.css\')}'
+								}"
+								includeJsFiles="{
+									0:'{f:uri.resource(path:\'Js/jquery.js\')}',
+									1:'/typo3/sysext/backend/Resources/Public/JavaScript/jsfunc.tbe_editor.js',
+									2:'/typo3/sysext/backend/Resources/Public/JavaScript/jsfunc.inline.js',
+									3:'/typo3/sysext/backend/Resources/Public/JavaScript/backend.js',
+									
+									4:'{f:uri.resource(path:\'Js/wz_jsgraphics.js\')}',
+									5:'{f:uri.resource(path:\'Js/draw_objects.js\')}',
+									6:'{f:uri.resource(path:\'Js/jscolor.js\')}',
+									7:'{f:uri.resource(path:\'Js/functions.js\')}'
+								}"
+
+            includeRequireJsModules="{
+							0:'TYPO3/CMS/Backend/FormEngine',
+							1:'TYPO3/CMS/Backend/FormEngineValidation',
+							2:'TYPO3/CMS/Backend/ContextMenu',
+							3:'TYPO3/CMS/Backend/FormEngineReview',
+							4:'{f:uri.resource(path:\'Js/fe_initialize.js\')}'
+						}"
+>		
+			
+<script type="text/javascript">
+	var showoptions = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />';
+	var hideoptions = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.hideoptions" />';
+</script>
+<div style="padding:20px;">
+  <f:render section="content" />
+</div>
+
+</f:be.container>
+
+
+
+
+<!-- </body></html> -->

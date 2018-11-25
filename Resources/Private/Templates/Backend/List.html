@@ -1,0 +1,130 @@
+{namespace k=MikelMade\Mmimagemap\ViewHelpers}
+<f:layout name="Backend" />
+
+<f:section name="content">
+
+<h2>MM Imagemap</h2>
+
+	<f:if condition="{nodir}==1">
+		<strong><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.choose_dir" /></strong>
+	</f:if>
+	
+	<f:if condition="{dir}">
+	
+	<!-- part to add a new imagemap start -->
+	<a href="Javascript:a_toggle('a_create');" style="text-decoration:none;"><h3 class="uppercase">
+	
+	<div class="icon minus" id="a_createtoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.hideoptions" />"></div>
+	
+	<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.create_map" /></h3></a>
+	<div id="a_create" class="toolwrap" style="padding:8px; margin:5px 0px 10px 0px;width:518px;">
+		<!-- <form action="<f:uri.action action='addmap' controller="Backend" />" method="post" enctype="multipart/form-data"> -->
+		
+		<f:form method="post" controller="Backend" action="addmap" extensionName="mmimagemap" enctype="multipart/form-data" additionalAttributes="{autocomplete: 'off'}">
+		
+			<input type="hidden" name="map_page" value="1" />
+			<input type="hidden" name="action" value="add" />
+			<input type="hidden" name="path" value="{pathid}" />
+			<input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<td style="padding:5px 0px;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.mapname" />:</td>
+					<td style="padding:5px 0px;"><input type="text" name="name" style="width:165px;" value="{mapname}" /></td>
+				</tr>
+				<tr>
+					<td style="padding:5px 0px;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.picture" />:</td>
+					<td style="padding:5px 0px;"><input type="file" id="usr_file" name="usr_file" /></td>
+				</tr>	
+				<tr>
+					<td style="padding:5px 0px;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.use_pic" />:</td>
+					<td style="padding:5px 0px;">
+						<select id="use_pic" name="use_pic" style="width:165px;">
+							<option></option>
+							<f:for each="{mappics}" as="mappic">
+								<option value="{mappic.uid}">{mappic.name}</option>
+							</f:for>
+						</select>
+					</td>
+				</tr>			
+				<tr>
+					<td style="padding:5px 0px;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.use_map" />:</td>
+					<td style="padding:5px 0px;">
+						<select id="use_map" name="use_map" style="width:165px;">
+							<option></option>
+							<f:for each="{mappics}" as="mappic">
+								<option value="{mappic.uid}">{mappic.name}</option>
+							</f:for>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding:5px 0px;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.use_file" />:</td>
+					<td style="padding:5px 0px;">
+						<select id="use_file" name="use_file" style="width:165px;">
+							<option></option>
+							<f:for each="{files}" as="file">
+								<option value="{file}">{file}</option>
+							</f:for>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"  style="padding-top:7px;"><input type="submit" value="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.add" />" /></td>
+				</tr>		
+			</table>	
+		</f:form>
+	</div>
+	<!-- part to add a new imagemap stop -->
+	
+	
+	<f:if condition="{maps}">
+	<!-- part to list imagemaps start -->
+	<script language="JavaScript">
+		var _delimg1 = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.delimg1" />';
+		var _delimg2 = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.delimg2" />';
+		var _erroc = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.erroc" />';
+		var _contaction = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.contaction" />';
+	</script>
+	
+	<a href="Javascript:a_toggle('a_list');"><h3 class="uppercase"><div class="icon minus" id="a_listtoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.hideoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.eim" /></h3></a>
+	<div style="border:1px solid #999999; padding:8px;padding-bottom:0px; margin:5px 0px 5px 0px;width:518px;" id="a_list">
+	<f:for each="{mappics}" as="map">
+		<!-- <form method="post" action="" name="f_{map.uid}" enctype="multipart/form-data" style="margin:0px;padding:0px;"> -->
+			<f:form method="post" controller="Backend" id="f_{map.uid}" name="f_{map.uid}" action="listedit" extensionName="mmimagemap" enctype="multipart/form-data" additionalAttributes="{autocomplete: 'off'}">
+		
+			<input type="hidden" name="id" value="{map.folder}">
+			<input type="hidden" name="map_id" value="{map.uid}" />
+			<input type="hidden" id="action_{map.uid}" name="action" value="" />
+			<input type="hidden" name="path" value="{map.folder}" />
+			<a href="Javascript:a_toggle('a_n{map.uid}');"><h3 class="uppercase"><div class="icon minus" id="a_n{map.uid}toggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.hideoptions" />"></div> {map.name}</h3></a>
+			<table id="a_n{map.uid}" class="toolwrap" border="0" cellpadding="0" cellspacing="0" style="width:100%;padding:10px; margin-bottom:8px;">
+				<tr>
+					<td><div style="border:1px solid #999999;padding:2px;background-color:#EFEFF4;float:left;margin:10px;"><a href="<f:uri.action action='edit' controller='Backend' arguments='{mapid:map.uid}' />"><img src="../fileadmin/_processed_/mmimagemap/{map.thumb}" title="{map.imgfile}" /></a></div></td>
+					<td valign="top">
+						<div><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.new_pic" /></div>
+						<div><input type="file" id="file_{map.uid}" name="usr_file" /></div>
+						<table cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td style="padding:7px 4px 0px 0px;"><input type="text" name="name" value="{map.name}" style="width:165px;" /></td>
+								<td style="padding:7px 4px 0px 0px;"><div data-id="{map.uid}" class="icon diskette chgname" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.save" />"></td>
+								<td style="padding:7px 0px 0px 0px;"><div data-id="{map.uid}" class="icon bin delmap" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.del" />"></td>
+							</tr>
+						</table>
+						<table cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td style="padding:7px 0px 0px 0px;"><input type="checkbox" id="check_{map.uid}" name="del_unused" /></td>
+								<td>&nbsp;</td>
+								<td style="padding:5px 0px 0px 0px;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.del_unused" /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</f:form>
+	</f:for>
+	</div>
+	<!-- part to list imagemaps stop -->
+	</f:if>
+	
+	</f:if>
+</f:section>

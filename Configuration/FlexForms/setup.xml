@@ -1,0 +1,26 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle></sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>	
+					<settings.map>
+						<TCEforms>
+							<label>LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.selectimagemap</label>
+							<config>
+								<type>select</type>
+								<itemsProcFunc>MikelMade\Mmimagemap\Utility\FlexFormHelper->getOptions</itemsProcFunc>
+								<maxitems>1</maxitems>
+								<size>1</size>
+								<disableNoMatchingValueElement>1</disableNoMatchingValueElement>
+							</config>
+						</TCEforms>
+					</settings.map>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>
