@@ -12,7 +12,7 @@ recommend to uncomment it again.
 
 */
 
-//exit;
+exit;
 $conf = require_once('../../../../../LocalConfiguration.php');
 
 $dbc = $conf['DB']['Connections']['Default'];
