@@ -2,7 +2,7 @@
 a remake of the old MW Imagemap TYPO3 extension for newer TYPO3 versions
 
 This extension does not offer new functionalities.
-It is just a new implementation of the old MW Imagemap plugin which should work in TYPO3 8.x and 9.x.
+It is just a new implementation of the old MW Imagemap plugin which should now work in TYPO3 8.x and 9.x.
 
 If someone wants to migrate data from an installation of the old MW Imagemap to the new MM Imagemap - just follow those steps:
 
