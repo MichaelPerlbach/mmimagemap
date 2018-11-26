@@ -8,11 +8,11 @@ If someone wants to migrate data from an installation of the old MW Imagemap to 
 
 1.) Install MM Imagemap
 
-2.) Immediately after install: open the file <extdir>/mmimagemap/Resources/Php/Migratedata.php
+2.) Immediately after install: open the file <extdir>/mmimagemap/Resources/Private/Php/Migratedata.php
   
 3.) Comment line 15
 
-4.) call <domainname>/typo3conf/ext/mmimagemap/Resources/Php/Migratedata.php
+4.) call <domainname>/typo3conf/ext/mmimagemap/Resources/Php/Private/Migratedata.php
   
 5.) uncomment line 15 again
 
