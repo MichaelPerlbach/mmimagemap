@@ -7,8 +7,13 @@ It is just a new implementation of the old MW Imagemap plugin which should work 
 If someone wants to migrate data from an installation of the old MW Imagemap to the new MM Imagemap - just follow those steps:
 
 1.) Install MM Imagemap
+
 2.) Immediately after install: open the file <extdir>/mmimagemap/Resources/Php/Migratedata.php
-2.) Comment line 15
-3.) call <domainname>/typo3conf/ext/mmimagemap/Resources/Php/Migratedata.php
-4.) uncomment line 15 again
-5.) done :-)
+  
+3.) Comment line 15
+
+4.) call <domainname>/typo3conf/ext/mmimagemap/Resources/Php/Migratedata.php
+  
+5.) uncomment line 15 again
+
+6.) done :-)
