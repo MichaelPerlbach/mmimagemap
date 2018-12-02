@@ -8,6 +8,10 @@ define(['jquery', 'TYPO3/CMS/Backend/FormEngine'], function($){
     });
 });
 
+if(typeof(TYPO3.lang) === 'undefined'){
+	TYPO3.lang = '';
+}
+
 TYPO3.settings.Popup = [];
 TYPO3.settings.Popup.PopupWindow = [];
 TYPO3.settings.Popup.PopupWindow.width = 1000;
