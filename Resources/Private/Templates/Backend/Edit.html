@@ -33,7 +33,7 @@ m_toggle["d"] = "<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language
 
 <!-- ###ADD_PART### -->
 <script type="Text/Javascript">function check_chg_vars() { return true; }</script>
-<a href="Javascript:a_toggle('area_add');"><h3 class="uppercase"><div class="icon minus" id="add_formtoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.add_link_area" /></h3></a>
+<a href="Javascript:a_toggle('area_add');" class="atoggle"><h3><div class="icon minus" id="area_addtoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.add_link_area" /></h3></a>
 <f:form method="post" controller="Backend" id="edit_form" name="editform" action="edit" extensionName="mmimagemap" enctype="multipart/form-data" additionalAttributes="{autocomplete: 'off'}" arguments='{mapid:mapid}'>
 
 	<input type="hidden" name="area_page" value="1" />
@@ -78,7 +78,7 @@ m_toggle["d"] = "<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language
 	<input type="hidden" name="area_page" value="1" />
 	<input type="hidden" id="area_id" name="area_id" value="{area.area.uid}" />
 	<input type="hidden" id="type" name="type" value="{area.area.areatype}" />
-	<a href="Javascript:a_toggle('l_area');"><h3 class="uppercase"><div class="icon minus" id="l_areatoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.edit_link_area" /></h3></a>
+	<a href="Javascript:a_toggle('l_area');" class="atoggle"><h3><div class="icon minus" id="l_areatoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.edit_link_area" /></h3></a>
 	<table cellpadding="0" id="l_area" cellspacing="0" style="border:1px solid #999999; margin:5px 0px 10px 0px; width:100%;">
 		<tr>
 			<td valign="top" style="padding:8px;">
@@ -102,7 +102,7 @@ m_toggle["d"] = "<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language
 					</tr>
 				</table>
 				
-				<a href="Javascript:a_toggle('frame');"><h3 class="uppercase"><div class="icon minus" id="frametoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.border" /></h3></a>
+				<a href="Javascript:a_toggle('frame');" class="atoggle"><h3><div class="icon minus" id="frametoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.border" /></h3></a>
 				<script type="Text/Javascript">
 				var ocols	= '{ocols}';
 				var delcol = '{addcolors}';
@@ -112,7 +112,6 @@ m_toggle["d"] = "<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language
 						<td style="padding:5px;">
 							<div><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.color" />:</div>
 							<select name="color" id="sel_col" onChange="change_color();" style="width:165px;margin-right:0px;">
-							
 							
 								<f:for each="{becolors}" as="becolor">
 								
@@ -139,7 +138,7 @@ m_toggle["d"] = "<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language
 							<div style="margin-top:10px;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.addcolor" /></div>
 							<span style="padding-bottom:8px;"> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.name" />:</span>
 							<input type="text" id="be_colname" name="be_colname" value="" style="width:150px;" maxlength="20" onfocus="Javascript:x_focus=1;" onblur="Javascript:x_focus=0;" />&nbsp;&nbsp;<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.color" />:
-							<input type="text" id="be_col" name="be_col" value="" style="width:70px;" maxlength="7" onblur="validateColor('be_col','be_col_but','be_colname')" />
+							<input type="text" id="be_col" name="be_col" value="" style="width:70px;" maxlength="7" />
 							<input name="be_col_but" type="button" id="be_col_but" style="background-color:#FFFFFF;border:1px solid #000000;width:16px;height:16px;" class="jscolor {required:false,required:false,valueElement:'be_col',width:243, height:150,closable:true,closeText:'X'}" value=" "/>
 							&nbsp;&nbsp;<input name="add_color" type="button" id="add_color" value="OK" />
 							<script type="Text/Javascript">
@@ -224,7 +223,7 @@ m_toggle["d"] = "<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language
 						catch (e)	{ alert("fehler"+e); }
 					}
 					</script>
-<h3 class="uppercase"><a href="Javascript:a_toggle('sizepos');"><div class="icon minus" id="sizepostoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div></a> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.sizepos" /></h3>
+<h3><a href="Javascript:a_toggle('sizepos');"><div class="icon minus" id="sizepostoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div></a> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.sizepos" /></h3>
 <table id="sizepos" class="toolwrap" cellpadding="0" cellspacing="0" style="display:block;margin:5px 0px 10px 0px; width:100%;">
 	<tr>
 		<td style="padding:5px;">
@@ -340,7 +339,7 @@ function imgonclick(Event)
 }
 
 </script>
-<h3 class="uppercase"><a href="Javascript:a_toggle('sizepos');"><div class="icon minus" id="sizepostoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div></a> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.sizepos" /></h3>
+<h3><a href="Javascript:a_toggle('sizepos');" class="atoggle"><div class="icon minus" id="sizepostoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div></a> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.sizepos" /></h3>
 <table id="sizepos" class="toolwrap" cellpadding="0" cellspacing="0" style="display:block; margin:5px 0px 10px 0px; width:100%;" >
 	<tr>
 		<td style="padding:5px;">
@@ -403,7 +402,7 @@ var _delete = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/l
 </script>
 <script type="text/javascript" src="../typo3conf/ext/mmimagemap/Resources/Public/Js/poly.js"></script>
 <input type="hidden" id="polynum" name="polynum" value="{area.points.num}" />
-	<a href="Javascript:a_toggle('addpoint');"><h3 class="uppercase"><div class="icon minus" id="addpointtoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.add_point" />:</h3></a>
+	<a href="Javascript:a_toggle('addpoint');" class="atoggle"><h3><div class="icon minus" id="addpointtoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.add_point" />:</h3></a>
 	<table id="addpoint" class="toolwrap" cellpadding="0" cellspacing="0" style="display:block; margin:5px 0px 10px 0px; width:100%;" onMouseOver="Javascript:objs[selectedid].reset_dom();" >
 	<tr>
 		<td style="padding:5px;" colspan="2"><input type="checkbox" id="rpoly" name="rpoly" value="add" onClick="myrpoly(0); objs[selectedid].reset_dom();" checked="checked" />&nbsp;<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.polyclick" /></td>
@@ -473,7 +472,7 @@ build_pos_sel();
 </script>
 
 <!-- polygon points --></div>
-<a href="Javascript:a_toggle('points');"><h3 class="uppercase"><div class="icon minus" id="pointstoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.editpoints" /></h3></a>
+<a href="Javascript:a_toggle('points');" class="atoggle"><h3><div class="icon minus" id="pointstoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.editpoints" /></h3></a>
 			<input type="hidden" name="actpoint" id="actpoint" value="" />
 			<table id="points" cellpadding="0" cellspacing="0" style="display:block;border:1px solid #999999; margin:5px 0px 10px 0px; width:100%;">
 				<tr>
@@ -500,7 +499,7 @@ build_pos_sel();
 </f:if>
 <!-- ###POLY_PART### -->
 	
-	<a href="Javascript:a_toggle('link');"><h3 class="uppercase"><div class="icon minus" id="linktoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.link" />:</h3></a>
+	<a href="Javascript:a_toggle('link');" class="atoggle"><h3><div class="icon minus" id="linktoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.link" />:</h3></a>
 	<table id="link" class="toolwrap" cellpadding="0" cellspacing="0" style="display:block;margin:5px 0px 10px 0px; width:100%;">
 		<tr>
 			<td style="padding:5px;"><div><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.link" />:</div>
@@ -514,7 +513,7 @@ build_pos_sel();
 				
 <input type="hidden" id="s_bcol" value="{area.area.febordercolor}" />
 <input type="hidden" id="s_bthc" value="{area.area.feborderthickness}" />
-<a href="Javascript:a_toggle('feoptions');"><h3 class="uppercase"><div class="icon minus" id="feoptionstoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.fe_options" /></h3></a>
+<a href="Javascript:a_toggle('feoptions');" class="atoggle"><h3><div class="icon minus" id="feoptionstoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.fe_options" /></h3></a>
 <table id="feoptions" class="toolwrap" style="width:100%;">
 	<tr>
 		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.fe_hidden" />:&nbsp;</td>
@@ -570,7 +569,7 @@ build_pos_sel();
 	</tr>
 </table>
 
-<a href="Javascript:a_toggle('cbox');"><h3 class="uppercase"><div class="icon minus" id="cboxtoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.contentbox" /></h3></a>
+<a href="Javascript:a_toggle('cbox');" class="atoggle"><h3><div class="icon minus" id="cboxtoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.contentbox" /></h3></a>
 <table id="cbox" class="toolwrap" style="width:100%;">
 	<tr>
 		<td style="padding:5px;white-space:nowrap;"><div id="cbwarning" style="float:left;margin-right:7px;display:none;"><img src="../typo3conf/ext/mwimagemap/mod1/gfx/warning.png" alt="" title="###CB_WARNING###" /></div><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.contentboxid" />:&nbsp;</td>
@@ -643,7 +642,7 @@ build_pos_sel();
 
 
 <!-- ###LIST_PART### -->
-<a href="Javascript:a_toggle('arealist');"><h3 class="uppercase"><div class="icon minus" id="arealisttoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.link_arealist" /></h3></a>
+<a href="Javascript:a_toggle('arealist');" class="atoggle"><h3><div class="icon minus" id="arealisttoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.link_arealist" /></h3></a>
 		<table cellpadding="0" id="arealist" cellspacing="0" style="border:1px solid #999999; margin:5px 0px 10px 0px; width:100%;">
 			<tr>
 				<td valign="top" style="padding:8px;width:451px;">
@@ -681,7 +680,7 @@ function set_areaids()
 }
 </script>
 
-				<h3 class="uppercase"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.selectedareas" /></h3>
+				<h3><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.selectedareas" /></h3>
 				<div class="toolwrap" style="margin:5px 0px 0px 0px; width:100%;">
 					<div style="padding:10px;">
 							<table cellpadding="0" cellspacing="0">
