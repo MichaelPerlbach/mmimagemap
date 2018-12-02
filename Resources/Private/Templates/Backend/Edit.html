@@ -994,14 +994,15 @@ function change_blink() {
 }
 
 function change_color() {
-	objs[selectedid].color = document.getElementById('sel_col').options[document.getElementById('sel_col').selectedIndex].value;
+	var _color = document.getElementById('sel_col').options[document.getElementById('sel_col').selectedIndex].value;
+	if(_color.indexOf('#') == -1){ _color = '#'+_color; }
+	objs[selectedid].color = _color;
 	objs[selectedid].paint();
-	selcol = document.getElementById('sel_col').options[document.getElementById('sel_col').selectedIndex].value;	
-	document.getElementById("area_shape_img").style.backgroundColor = selcol;
-	document.getElementById("i_"+document.getElementById("area_id").value).style.backgroundColor = selcol;
+	document.getElementById("area_shape_img").style.backgroundColor = _color;
+	document.getElementById("i_"+document.getElementById("area_id").value).style.backgroundColor = _color;
 	if(document.getElementById('sel_col').selectedIndex > (ocols-1)) { document.getElementById('coldel').style.visibility = "visible"; }
 	else { document.getElementById('coldel').style.visibility = "hidden"; }
-	if(document.getElementById('s_bcol').value.length == 0) { document.getElementById('s_bcol').value = selcol; }
+	if(document.getElementById('s_bcol').value.length == 0) { document.getElementById('s_bcol').value = _color; }
 	checkvisible();
 	checkfixedcolor();
 }
