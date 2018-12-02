@@ -109,19 +109,20 @@ foreach($data as $item){
 	$result = mysqli_query($database, $sql, MYSQLI_USE_RESULT);
 }
 
-// copy all overlay images
+// copy all overlay images - if there are any
 $abspath = explode('typo3conf',__FILE__);
 $oldpath = $abspath[0].'uploads/tx_mwimagemap';
 $newpath = $abspath[0].'uploads/tx_mmimagemap';
 
-$dh = opendir($oldpath)) {
-  while (($file = readdir($dh)) !== false) {
+if(is_dir($oldpath)){
+	$dh = opendir($oldpath));
+	while (($file = readdir($dh)) !== false) {
 		if($file != '.' && $file != '..'){
 			copy($oldpath.'/'.$file,$newpath.'/'.$file);
 		}
 	}
+	closedir($dh);
 }
-closedir($oldpath);
 
 
 
