@@ -2,6 +2,10 @@
 	cursor:pointer;
 }
 
+a.atoggle:link,a.atoggle:visited,a.atoggle:active,a.atoggle:hover{
+	text-decoration:none;	
+}
+
 .toolwrap{
 	background-color:#EFEFF4;
 	border:1px solid #999999;
