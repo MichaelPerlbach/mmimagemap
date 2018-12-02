@@ -1,4 +1,4 @@
-$(document).ready(function(){ alert('test');
+$(document).ready(function(){
 	$('#use_pic').on('change',function(){
 		if($(this).val().length != 0){
 			$("#use_map option:first").prop('selected','selected');
