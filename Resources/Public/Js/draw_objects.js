@@ -15,7 +15,6 @@ function make_blink_int(id)
 	}
 }
 
-
 /**********
  * Circle *
  **********/
@@ -88,7 +87,6 @@ function circle(x, y, r, id, col)
 		this.reset(px, py, pr);
 	}
 
-
 	this.reset = function(x, y, r)
 	{
 		this.xpos = x;
@@ -97,7 +95,6 @@ function circle(x, y, r, id, col)
 		jg.removeItem(preid+this.id);
 		this.paint();
 	}
-
 
 	this.is_in_obj = function(x, y)
 	{
@@ -109,9 +106,6 @@ function circle(x, y, r, id, col)
 	
 	this.paint();
 }
-
-
-
 
 /*************
  * Rectangle *
@@ -162,7 +156,6 @@ function rectangle( x, y, w, h, id, col )
 		document.getElementById(preid+this.id).style.display = 'block';
 	}
 	
-	
 	this.paint = function()
 	{
 		jg.setID(preid+id);
@@ -194,8 +187,6 @@ function rectangle( x, y, w, h, id, col )
 		this.reset(px,py,pw,ph);
 	}
 
-
-
 	this.reset = function reset( x, y, w, h )
 	{
 		this.xpos = x;
@@ -207,7 +198,6 @@ function rectangle( x, y, w, h, id, col )
 		this.paint();
 	}
 
-
 	this.is_in_obj = function( x, y )
 	{
 		if ( x >= this.xpos && x <= this.xpos+this.width &&
@@ -218,10 +208,6 @@ function rectangle( x, y, w, h, id, col )
 
 	this.paint();
 }
-
-
-
-
 
 /***********
  * Polygon *
@@ -242,8 +228,7 @@ function polygon( x, y, id, col, clo, ms, me )
 
 
 	this.drag = function(x1, y1, x2, y2)
-	{
-	}
+	{}
 
 	this.make_blink = function()
 	{

@@ -216,11 +216,11 @@
 				<source>on click set upper left corner</source>
 			</trans-unit>
 
-			<trans-unit id="mark_startpoint">
+			<trans-unit id="tx_mmimagemap.mark_startpoint">
 				<source>mark startpoint</source>
 			</trans-unit>
 
-			<trans-unit id="close">
+			<trans-unit id="tx_mmimagemap.close">
 				<source>close polygon</source>
 			</trans-unit>
 

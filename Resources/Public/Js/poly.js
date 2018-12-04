@@ -13,13 +13,10 @@ function add_point()
   xid.nodeValue = 'p_'+real_pos;
 	td.setAttributeNode(xid);
 	var cl = document.createAttribute("class");
-	cl.nodeValue = 'toolwrap_point';
+	cl.nodeValue = 'pointwrap';
 	td.setAttributeNode(cl);
-	td.style.padding = "5px";
-	td.style.width = "150px;";
   
-	if ( jg_ie )
-	{
+	if ( jg_ie ){
     var str = '<input name="hidden" type="hidden" id="persistent'+real_pos+'" value="0" />'
     +'<div id="pt_div'+real_pos+'" style="padding-bottom:7px;font-weight:bold;">'+pt_num_txt+real_pos+':</div>'
     +'<div style="padding-bottom:5px;white-space:nowrap;"> <div id="rpoly'+real_pos+'" class="icon stift" title="'+pt_del_txt+'" onClick="myrpoly('+real_pos+'); objs[selectedid].reset_dom();"></div>&nbsp;&nbsp;&nbsp;&nbsp;'
@@ -142,8 +139,7 @@ function add_point()
 		at.nodeValue = 'objs[selectedid].reset_dom();';
 		el.setAttributeNode(at);
 		td.appendChild(el);
-	}
-	
+	}	
 	document.getElementById('xpos0').value = '';
 	document.getElementById('ypos0').value = '';
 	
@@ -234,14 +230,13 @@ function add_point()
 	document.getElementById('points').style.display = "block";
 }
 
-function rename_pt_tbl( pos )
-{
+function rename_pt_tbl( pos ){
 	var i = akt_polynum;
 	var el;
 	while ( i >= pos )
 	{
 		if ( jg_ie ) {
-      var str = '<td id="p_'+(i+1)+'" class="toolwrap_point" style="padding:5px;width:150px;">'
+      var str = '<td id="p_'+(i+1)+'" class="pointwrap" style="padding:5px;width:150px;">'
       +'<input name="hidden" type="hidden" id="persistent'+(i+1)+'" value="'+document.getElementById('persistent'+i).value+'" />'
       +'<div id="pt_div'+(i+1)+'" style="padding-bottom:7px;font-weight:bold;">'+pt_num_txt+(i+1)+':</div>'
       +'<div style="padding-bottom:5px;white-space:nowrap;"> <div id="rpoly'+(i+1)+'" class="icon stift" title="'+pt_del_txt+'" onClick="myrpoly('+(i+1)+'); objs[selectedid].reset_dom();"></div>&nbsp;&nbsp;&nbsp;&nbsp;'
@@ -278,7 +273,7 @@ function rename_tbl_pt( i, i1 )
 {
 try {
 	if ( jg_ie ) {
-    var str = '<td id="p_'+i1+'" class="toolwrap_point" style="padding:5px;width:150px;">'
+    var str = '<td id="p_'+i1+'" class="pointwrap" style="padding:5px;width:150px;">'
     +'<input name="hidden" type="hidden" id="persistent'+i1+'" value="1" />'
     +'<div id="pt_div'+i1+'" style="padding-bottom:7px;font-weight:bold;">'+pt_num_txt+i1+':</div>'
     +'<div style="padding-bottom:5px;white-space:nowrap;"> <div id="rpoly'+i1+'" class="icon stift" title="'+pt_del_txt+'" onClick="myrpoly('+i1+'); objs[selectedid].reset_dom();"></div>&nbsp;&nbsp;&nbsp;&nbsp;'
@@ -354,8 +349,7 @@ function count_tds( tr )
 	return ret;
 }
 
-function build_pos_sel()
-{
+function build_pos_sel(){
 	var i;
 	var pos = document.getElementById('pos');
 	var opt;
@@ -380,8 +374,7 @@ function build_pos_sel()
 }
 
 
-function del_click( num )
-{
+function del_click( num ){
 	var i;
 	if ( document.getElementById('del'+num).checked )
 	{
@@ -460,8 +453,7 @@ function del_click( num )
 }
 
 
-function myrpoly( num )
-{
+function myrpoly( num ) {
   pchecked = num;
   if(num != 0) {
 	  document.getElementById('rpoly').checked = false;
@@ -479,8 +471,7 @@ function myrpoly( num )
 	}
 }
 
-function imgonclick(Event)
-{
+function imgonclick(Event) {
 	var xelem;
 	var yelem;
 	var posx = -1;

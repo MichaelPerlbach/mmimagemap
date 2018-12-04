@@ -158,8 +158,7 @@ function removecolOption(color,colname)
   }
 }
 
-function addcolOption(color,colname)
-{
+function addcolOption(color,colname){
   var elOptNew = document.createElement('option');
   elOptNew.text = colname;
   elOptNew.value = color;
@@ -172,46 +171,10 @@ function addcolOption(color,colname)
 function delCol() {
   delconf = confirm(coldelmsg);
 	if(delconf == true) {
-		
-		//var _id = $('#color').find(':selected').data('id');
-		
 		var _id = $('#sel_col').find(':selected').data('id');
 		$('#editaction').prop('value','delcolor');
 		$('#actiondata').prop('value',_id);
 		$('#edit_form').submit();
-		
-		/*
-    dcol            = document.getElementById('sel_col').options[document.getElementById('sel_col').selectedIndex].value;
-	  dcolname        = document.getElementById('sel_col').options[document.getElementById('sel_col').selectedIndex].text;
-    if(document.getElementById('addcols').value.length != 0) {
-      _addcols        = document.getElementById('addcols').value.split(",");
-	    _addcolnames    = document.getElementById('addcolnames').value.split(",");
-	    _newaddcols     = new Array();
-	    _newaddcolnames = new Array();
-	    for(i=0;i<_addcols.length;i++) {
-	      if(_addcols[i] != dcol && _addcolnames[i] != dcolname) {
-		      _newaddcols.push(_addcols[i]);
-			    _newaddcolnames.push(_addcolnames[i]);
-		    }
-	    }
-	    _newcols     = _newaddcols.join(",");
-	    _newcolnames = _newaddcolnames.join(",");
-		  document.getElementById('addcols').value = _newcols;
-		  document.getElementById('addcolnames').value = _newcolnames;
-    }
-		
-    _delcols     = document.getElementById('delcols').value;
-	  _delcolnames = document.getElementById('delcolnames').value;
-	  _delcols     = (_delcols.length == 0) ? dcol : _delcols+","+dcol;
-	  _delcolnames = (_delcolnames.length == 0) ? dcolname : _delcolnames+","+dcolname;
-		
-		document.getElementById('delcols').value = _delcols;
-		document.getElementById('delcolnames').value = _delcolnames;
-
-	  removecolOption(dcol,dcolname);
-	  change_color();
-	  changes = 1;
-		*/
 	}
 }
 

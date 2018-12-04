@@ -127,6 +127,7 @@ class Area extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		* @return \integer $uid
 		*/
 	public function getUid() {
+		print $this->uid;
 		return $this->uid;
 	}
 	

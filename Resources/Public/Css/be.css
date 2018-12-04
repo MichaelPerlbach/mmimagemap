@@ -10,13 +10,14 @@ a.atoggle:link,a.atoggle:visited,a.atoggle:active,a.atoggle:hover{
 	background-color:#EFEFF4;
 	border:1px solid #999999;
 }
-.toolwrap:hover{ background-color:#E3E2E2; }
 
-.toolwrap_point{
+.pointwrap{
 	background-color:#EDE9E5;
 	border:1px solid #999999;
+	padding:5px;
+	width:20%;
 }
-.toolwrap_point:hover{ background-color:#E3E2E2; }
+.toolwrap:hover,.pointwrap:hover{ background-color:#E3E2E2; }
 
 
 /* polygon */

@@ -30,7 +30,6 @@ m_toggle["d"] = "<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language
 <br />
 <!-- ###IMG_PART### -->
 
-
 <!-- ###ADD_PART### -->
 <script type="Text/Javascript">function check_chg_vars() { return true; }</script>
 <a href="Javascript:a_toggle('area_add');" class="atoggle"><h3><div class="icon minus" id="area_addtoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.add_link_area" /></h3></a>
@@ -182,7 +181,7 @@ m_toggle["d"] = "<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language
 							if ( is_a_obj(Event) ) { return; }
 
 							try {
-								if ( typeof Event.layerX == 'undefined' ) { throw("bla");	}
+								if ( typeof Event.layerX === 'undefined' ) { throw("bla");	}
 								if(navigator.appName == 'Microsoft Internet Explorer' && (navigator.appVersion.indexOf('MSIE 10') != -1 || navigator.appVersion.indexOf('MSIE 9') != -1)) {
 									posx += window.event.offsetX;
 									posy += window.event.offsetY;
@@ -295,7 +294,7 @@ function imgonclick(Event)
 	if ( is_a_obj(Event) ) return;
 
 	try {
-		if ( typeof Event.layerX == 'undefined' ) { throw("bla");	}
+		if ( typeof Event.layerX === 'undefined' ) { throw("bla");	}
 		if(navigator.appName == 'Microsoft Internet Explorer' && (navigator.appVersion.indexOf('MSIE 10') != -1 || navigator.appVersion.indexOf('MSIE 9') != -1)) {
 			posx += window.event.offsetX;
 			posy += window.event.offsetY;
@@ -427,20 +426,6 @@ var _delete = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/l
 	<tr>
 		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.mark_startpoint" />&nbsp;</td>
 		
-		<f:if condition="{epoint}==1">
-			<f:then>
-				<td style="padding:5px;width:100%;"><input type="checkbox" id="endpoint" name="epoint" onClick="objs[selectedid].reset_dom();" value="1" checked="checked" /></td>
-			</f:then>
-			
-			<f:else>
-				<td style="padding:5px;width:100%;"><input type="checkbox" id="endpoint" name="epoint" onClick="objs[selectedid].reset_dom();" value="1" /></td>
-			</f:else>
-		</f:if>
-		
-	</tr>
-	<tr>
-		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.mark_endpoint" />&nbsp;</td>
-		
 		<f:if condition="{spoint}==1">
 			<f:then>
 				<td style="padding:5px;width:100%;"><input type="checkbox" id="startpoint" name="spoint" onClick="objs[selectedid].reset_dom();" value="1" checked="checked" /></td>
@@ -448,6 +433,20 @@ var _delete = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/l
 			
 			<f:else>
 				<td style="padding:5px;width:100%;"><input type="checkbox" id="startpoint" name="spoint" onClick="objs[selectedid].reset_dom();" value="1" /></td>
+			</f:else>
+		</f:if>
+		
+	</tr>
+	<tr>
+		<td style="padding:5px;white-space:nowrap;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.mark_endpoint" />&nbsp;</td>
+		
+		<f:if condition="{epoint}==1">
+			<f:then>
+				<td style="padding:5px;width:100%;"><input type="checkbox" id="endpoint" name="epoint" onClick="objs[selectedid].reset_dom();" value="1" checked="checked" /></td>
+			</f:then>
+			
+			<f:else>
+				<td style="padding:5px;width:100%;"><input type="checkbox" id="endpoint" name="epoint" onClick="objs[selectedid].reset_dom();" value="1" /></td>
 			</f:else>
 		</f:if>
 		
@@ -467,9 +466,7 @@ var _delete = '<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/l
 		</td>	
 	</tr>
 </table>
-<script type="text/javascript">
-build_pos_sel();
-</script>
+<script type="text/javascript"> build_pos_sel(); </script>
 
 <!-- polygon points --></div>
 <a href="Javascript:a_toggle('points');" class="atoggle"><h3><div class="icon minus" id="pointstoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.editpoints" /></h3></a>
@@ -477,10 +474,10 @@ build_pos_sel();
 			<table id="points" cellpadding="0" cellspacing="0" style="display:block;border:1px solid #999999; margin:5px 0px 10px 0px; width:100%;">
 				<tr>
 					<td align="center">
-						<table align="center" style="width:448px;height:100px;border-collapse: separate;border-spacing:8px;"><tbody id="poly_tbl"><tr>
+						<table align="center" style="width:448px;height:100px;border-collapse:separate;border-spacing:8px;"><tbody id="poly_tbl"><tr>
 
 <f:for each="{area.points.points}" as="apoint">
-	<td id="p_{apoint.num}"	class="toolwrap_point" style="padding:5px;width:20%;" onMouseOver="Javascript:tbg_ov3(this)" onMouseOut="Javascript:tbg_out3(this)">
+	<td id="p_{apoint.num}"	class="pointwrap">
 		<input name="hidden" type="hidden" id="persistent{apoint.num}" value="1" />
 		<div id="pt_div{apoint.num}" style="padding-bottom:7px;font-weight:bold;"><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.point_number" /> {apoint.num}:</div>
 		<div style="padding-bottom:5px;white-space:nowrap;"> <img src="../typo3conf/ext/mwimagemap/mod1/img/pencil.gif" id="rpoly{apoint.num}" width="14" height="14" onClick="myrpoly({apoint.num}); objs[selectedid].reset_dom();">&nbsp;&nbsp;&nbsp;
@@ -639,8 +636,6 @@ build_pos_sel();
 <!-- ###EDIT_PART### -->
 </f:if>
 
-
-
 <!-- ###LIST_PART### -->
 <a href="Javascript:a_toggle('arealist');" class="atoggle"><h3><div class="icon minus" id="arealisttoggle" title="<f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.showoptions" />"></div> <f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.link_arealist" /></h3></a>
 		<table cellpadding="0" id="arealist" cellspacing="0" style="border:1px solid #999999; margin:5px 0px 10px 0px; width:100%;">
@@ -663,22 +658,6 @@ build_pos_sel();
 						</tr>
 					</table>
 				</f:for>
-
-<script type="text/javascript">
-function set_areaids()
-{
-	var i = 0;
-	var el = false;
-	var hidden = document.getElementById('areaids');
-	hidden.value = '';
-	while ( ( el = document.getElementById('sel_'+i) ) )
-	{
-		if ( el.checked )
-			hidden.value += (hidden.value?',':'')+el.value;
-		++i;
-	}
-}
-</script>
 
 				<h3><f:translate key="LLL:EXT:mmimagemap/Resources/Private/Language/locallang_be.xlf:tx_mmimagemap.selectedareas" /></h3>
 				<div class="toolwrap" style="margin:5px 0px 0px 0px; width:100%;">
@@ -984,7 +963,6 @@ function is_a_obj(Event) {
 }
 
 function edit_obj( id ) {
-	//window.location.href = "index.php?area_page=1&M=file_mwimagemapM1&moduleToken=###TOKEN###&map_id=###MID###&area_id="+id+"&id=###PATHID###";
 	window.location.href = $('#editarea_'+id).prop('href');
 }
 
@@ -1031,7 +1009,7 @@ function init_chg_vars() {
 			break;
 		case '2': // Polygon
 			chg_point[0] = polynum;
-			for ( var i = 1; i <= polynum; ++i ) {
+			for ( var i=1;i<=polynum;++i ) {
 				if(document.getElementById('xpos'+i)) {
 					chg_point[i*2-1] = document.getElementById('xpos'+i).value;
 					chg_point[i*2] = document.getElementById('ypos'+i).value;

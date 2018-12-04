@@ -77,19 +77,11 @@ class	BackendController	extends	\TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
 	public function initializeSettings() {
 		$this->pManager = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
-		/*
-		foreach ($this->settings['flexform'] as $key => $value) {
-				if (isset($this->settings[$key]) && $value != '') {
-					$this->settings[$key] = $value;
-				}
- 			}
-			*/
- 		}
+ 	}
 		
 	public function initializeAction() {
 		$this->initializeSettings();
 	}
-
 
 	/**
 		*	action	list
@@ -324,7 +316,6 @@ class	BackendController	extends	\TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		*	@return	 void
 	*/
 	public function editAction(){
-		
 		$belang = $GLOBALS['BE_USER']->uc['lang'];
 		if(strlen($belang) == 0){ $belang = 'en'; }
 		$extconf = \MikelMade\Mmimagemap\Utility\Tx_Mmimagemap_Utility_Div::GetExtConf();
@@ -378,7 +369,8 @@ class	BackendController	extends	\TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 			$newarea->setColor(str_replace('#','',$becolors[0]['color']));
 			$this->areaRepository->add($newarea);
 			$this->pManager->persistAll();
-			$areaid = $newarea->getUid;
+			$areaid = $newarea->getUid();
+			
 			$this->mapRepository->MakeFePics($_POST['mapid'],$this->areaRepository);
 		}
 		
@@ -545,11 +537,10 @@ class	BackendController	extends	\TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 				break;
 			}
 			$this->pManager->persistAll();
-			
+			print $areaid;
 			$areaid = (int)$_POST['area_id'];
 			$this->mapRepository->MakeFePics($mapid,$this->areaRepository);
 		}
-		
 		
 		if(isset($_POST['action']) && $_POST['action'] == 'delarea'){
 			$areaid = ((int)$_POST['actiondata'] == (int)$_POST['area_id']) ? 0 : (int)$_POST['area_id'];
@@ -617,6 +608,8 @@ class	BackendController	extends	\TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		
 		// get area list after all inserts and updates are done
 		$arealist = $this->areaRepository->GetAreas($params['mapid']);
+		
+		
 		
 		// get all fresh area data here
 		if($areaid == 0 && !empty($arealist)){
