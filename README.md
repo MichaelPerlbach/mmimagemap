@@ -8,7 +8,7 @@ If someone wants to migrate data from an installation of the old MW Imagemap to 
 
 1.) Install MM Imagemap. It is presumed that your TYPO3 database must also contain all tables (with data) from the old version.
 
-2.) Immediately after install: open the file [extdir]/mmimagemap/Resources/Private/Php/Migratedata.php.
+2.) Immediately after install: open the file [extdir]/mmimagemap/Resources/Private/Php/Migratedata.php for editing.
   
 3.) Comment line 15.
 
