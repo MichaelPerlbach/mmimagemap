@@ -4,7 +4,7 @@ namespace MikelMade\Mmimagemap\Domain\Repository;
 /***************************************************************
  *	Copyright notice
  *
- *	(c) 2018 MikelMade (http://www.mikelmade.de) 
+ *	(c) 2018 MikelMade (http://www.mikelmade.de)
  *	All rights reserved
  *
  *	This script is part of the TYPO3 project. The TYPO3 project is
@@ -31,46 +31,49 @@ namespace MikelMade\Mmimagemap\Domain\Repository;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class PointRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
-	
-	/**
-	 * Life cycle method.
-	 *
-	 * @return void
-	 */
-	public function initializeObject() {
-
-	}
-	
-	/**
-		* gets all point data for a given point id
-		*
-		* @param integer $pointid
-		* @param string $fields
-		*
-		* return string or array
-		*/
-	public function GetPointData($pointid,$fields='*'){
-		$query = $this->createQuery();
-		$query->statement('SELECT '.$fields.' from tx_mmimagemap_domain_model_point where uid='.(int)$pointid);
-		$res = $query->execute(true);
-		if($fields != '*' && !preg_match('/\,/',$fields)){ return $res[0][$fields]; }
-		return $res[0];
-	}
-	
-	/**
-		* gets all points for a given area id
-		*
-		* @param integer $areaid
-		*
-		* return string or array
-		*/
-	public function GetPoints($areaid){
-		$query = $this->createQuery();
-		$query->statement('SELECT * from tx_mmimagemap_domain_model_point where areaid='.(int)$areaid);
-		$res = $query->execute(true);
-		return $res;
-	}
-	
+class PointRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+{
+    
+    /**
+     * Life cycle method.
+     *
+     * @return void
+     */
+    public function initializeObject()
+    {
+    }
+    
+    /**
+        * gets all point data for a given point id
+        *
+        * @param integer $pointid
+        * @param string $fields
+        *
+        * return string or array
+        */
+    public function GetPointData($pointid, $fields='*')
+    {
+        $query = $this->createQuery();
+        $query->statement('SELECT '.$fields.' from tx_mmimagemap_domain_model_point where uid='.(int)$pointid);
+        $res = $query->execute(true);
+        if ($fields != '*' && !preg_match('/\,/', $fields)) {
+            return $res[0][$fields];
+        }
+        return $res[0];
+    }
+    
+    /**
+        * gets all points for a given area id
+        *
+        * @param integer $areaid
+        *
+        * return string or array
+        */
+    public function GetPoints($areaid)
+    {
+        $query = $this->createQuery();
+        $query->statement('SELECT * from tx_mmimagemap_domain_model_point where areaid='.(int)$areaid);
+        $res = $query->execute(true);
+        return $res;
+    }
 }
-?>

@@ -31,104 +31,111 @@ namespace MikelMade\Mmimagemap\Domain\Model;
  *
  */
  
-class Bcolors extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
-	
-	/**
-		* uid
-		*
-		* @lazy
-		* @var \integer
-		*/
-	protected $uid;
+class Bcolors extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+{
+    
+    /**
+        * uid
+        *
+        * @lazy
+        * @var \integer
+        */
+    protected $uid;
 
-	/**
-		* mapid 
-		*
-		* @lazy
-		* @var \integer
-		*/
-	protected $mapid;
+    /**
+        * mapid
+        *
+        * @lazy
+        * @var \integer
+        */
+    protected $mapid;
 
-	/**
-		* colorname
-		*
-		* @lazy
-		* @var \string
-		*/
-	protected $colorname;
-	
-	/**
-		* color
-		*
-		* @lazy
-		* @var \string
-		*/
-	protected $color;
-	
-	/**
-		* Returns the uid
-		*
-		* @return \integer $uid
-		*/
-	public function getId() {
-		return $this->uid;
-	}
-	
-	/**
-		* Returns the mapid
-		*
-		* @return \integer $mapid
-		*/
-	public function getMapid() {
-		return $this->mapid;
-	}
-	
-	/**
-		* Sets the mapid
-		*
-		* @param \integer $mapid
-		* @return void
-		*/
-	public function setMapid($mapid) {
-		$this->mapid = $mapid;
-	}
-	
-	/**
-		* Returns the colorname
-		*
-		* @return \string $colorname
-		*/
-	public function getColorname() {
-		return $this->colorname;
-	}
-	
-	/**
-		* Sets the colorname
-		*
-		* @param \integer $colorname
-		* @return void
-		*/
-	public function setColorname($colorname) {
-		$this->colorname = $colorname;
-	}
-	
-	/**
-		* Returns the color
-		*
-		* @return \string $color
-		*/
-	public function getColor() {
-		return $this->color;
-	}
-	
-	/**
-		* Sets the color
-		*
-		* @param \string $color
-		* @return void
-		*/
-	public function setColor($color) {
-		$this->color = $color;
-	}
-	
+    /**
+        * colorname
+        *
+        * @lazy
+        * @var \string
+        */
+    protected $colorname;
+    
+    /**
+        * color
+        *
+        * @lazy
+        * @var \string
+        */
+    protected $color;
+    
+    /**
+        * Returns the uid
+        *
+        * @return \integer $uid
+        */
+    public function getId()
+    {
+        return $this->uid;
+    }
+    
+    /**
+        * Returns the mapid
+        *
+        * @return \integer $mapid
+        */
+    public function getMapid()
+    {
+        return $this->mapid;
+    }
+    
+    /**
+        * Sets the mapid
+        *
+        * @param \integer $mapid
+        * @return void
+        */
+    public function setMapid($mapid)
+    {
+        $this->mapid = $mapid;
+    }
+    
+    /**
+        * Returns the colorname
+        *
+        * @return \string $colorname
+        */
+    public function getColorname()
+    {
+        return $this->colorname;
+    }
+    
+    /**
+        * Sets the colorname
+        *
+        * @param \integer $colorname
+        * @return void
+        */
+    public function setColorname($colorname)
+    {
+        $this->colorname = $colorname;
+    }
+    
+    /**
+        * Returns the color
+        *
+        * @return \string $color
+        */
+    public function getColor()
+    {
+        return $this->color;
+    }
+    
+    /**
+        * Sets the color
+        *
+        * @param \string $color
+        * @return void
+        */
+    public function setColor($color)
+    {
+        $this->color = $color;
+    }
 }

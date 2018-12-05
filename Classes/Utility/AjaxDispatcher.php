@@ -31,7 +31,8 @@
 * @package mmimagemap
 */
  
-class Tx_Mmimagemap_Utility_AjaxDispatcher {
+class Tx_Mmimagemap_Utility_AjaxDispatcher
+{
  
     /**
      * Array of all request Arguments
@@ -83,7 +84,8 @@ class Tx_Mmimagemap_Utility_AjaxDispatcher {
      *
      * Call this function if you want to use this dispatcher "standalone"
      */
-    public function initAndDispatch() {
+    public function initAndDispatch()
+    {
         $this->initCallArguments()->dispatch();
     }
  
@@ -94,7 +96,8 @@ class Tx_Mmimagemap_Utility_AjaxDispatcher {
      *
      * ATTENTION: You should not call this method without initializing the dispatcher. Use initAndDispatch() instead!
      */
-    public function dispatch() {
+    public function dispatch()
+    {
         $configuration['extensionName'] = $this->extensionName;
         $configuration['pluginName'] = $this->pluginName;
  
@@ -118,12 +121,13 @@ class Tx_Mmimagemap_Utility_AjaxDispatcher {
      * @param null $pageUid
      * @return Tx_Mmimagemap_Utility_AjaxDispatcher
      */
-    public function init($pageUid = NULL) {
+    public function init($pageUid = null)
+    {
         #define('TYPO3_MODE','FE');
  
         $this->pageUid = $pageUid;
  
-        $GLOBALS['TSFE'] = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tslib_fe', $TYPO3_CONF_VARS, $pageUid, '0', 1, '', '','','');
+        $GLOBALS['TSFE'] = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('tslib_fe', $TYPO3_CONF_VARS, $pageUid, '0', 1, '', '', '', '');
         $GLOBALS['TSFE']->sys_page = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('t3lib_pageSelect');
  
         #$GLOBALS['TSFE']->initFeuser();
@@ -135,7 +139,8 @@ class Tx_Mmimagemap_Utility_AjaxDispatcher {
     /**
      * @return Tx_Mmimagemap_Utility_AjaxDispatcher
      */
-    public function initTypoScript() {
+    public function initTypoScript()
+    {
         $GLOBALS['TSFE']->getPageAndRootline();
         $GLOBALS['TSFE']->initTemplate();
         $GLOBALS['TSFE']->getConfigArray();
@@ -146,7 +151,8 @@ class Tx_Mmimagemap_Utility_AjaxDispatcher {
     /**
      * @return void
      */
-    public function cleanShutDown() {
+    public function cleanShutDown()
+    {
         $this->objectManager->get('Tx_Extbase_Persistence_Manager')->persistAll();
         $this->objectManager->get('Tx_Extbase_Reflection_Service')->shutdown();
     }
@@ -156,7 +162,8 @@ class Tx_Mmimagemap_Utility_AjaxDispatcher {
      *
      * @return Tx_Extbase_MVC_Web_Request $request
      */
-    protected function buildRequest() {
+    protected function buildRequest()
+    {
         $request = $this->objectManager->get('Tx_Extbase_MVC_Web_Request'); /* @var $request Tx_Extbase_MVC_Request */
         $request->setControllerExtensionName($this->extensionName);
         $request->setPluginName($this->pluginName);
@@ -171,7 +178,8 @@ class Tx_Mmimagemap_Utility_AjaxDispatcher {
      * Prepare the call arguments
      * @return Tx_Mmimagemap_Utility_AjaxDispatcher
      */
-    public function initCallArguments() {
+    public function initCallArguments()
+    {
         $request = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('request');
  
         if ($request) {
@@ -187,7 +195,9 @@ class Tx_Mmimagemap_Utility_AjaxDispatcher {
  
         $this->arguments = $this->requestArguments['arguments'];
  
-        if (!is_array($this->arguments)) $this->arguments = array();
+        if (!is_array($this->arguments)) {
+            $this->arguments = array();
+        }
  
         return $this;
     }
@@ -197,9 +207,10 @@ class Tx_Mmimagemap_Utility_AjaxDispatcher {
      *
      * @param string $request
      */
-    protected function setRequestArgumentsFromJSON($request) {
+    protected function setRequestArgumentsFromJSON($request)
+    {
         $requestArray = json_decode($request, true);
-        if(is_array($requestArray)) {
+        if (is_array($requestArray)) {
             $this->requestArguments = \TYPO3\CMS\Core\Utility\GeneralUtility::array_merge_recursive_overrule($this->requestArguments, $requestArray);
         }
     }
@@ -207,10 +218,13 @@ class Tx_Mmimagemap_Utility_AjaxDispatcher {
     /**
      * Set the request array from the getPost array
      */
-    protected function setRequestArgumentsFromGetPost() {
+    protected function setRequestArgumentsFromGetPost()
+    {
         $validArguments = array('extensionName','pluginName','controllerName','actionName','arguments');
-        foreach($validArguments as $argument) {
-            if(\TYPO3\CMS\Core\Utility\GeneralUtility::_GP($argument)) $this->requestArguments[$argument] = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP($argument);
+        foreach ($validArguments as $argument) {
+            if (\TYPO3\CMS\Core\Utility\GeneralUtility::_GP($argument)) {
+                $this->requestArguments[$argument] = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP($argument);
+            }
         }
     }
  
@@ -218,8 +232,11 @@ class Tx_Mmimagemap_Utility_AjaxDispatcher {
      * @param $extensionName
      * @return Tx_Mmimagemap_Utility_AjaxDispatcher
      */
-    public function setExtensionName($extensionName) {
-        if(!$extensionName) throw new Exception('No extension name set for extbase request.', 1327583056);
+    public function setExtensionName($extensionName)
+    {
+        if (!$extensionName) {
+            throw new Exception('No extension name set for extbase request.', 1327583056);
+        }
  
         $this->extensionName = $extensionName;
         return $this;
@@ -229,7 +246,8 @@ class Tx_Mmimagemap_Utility_AjaxDispatcher {
      * @param $pluginName
      * @return Tx_Mmimagemap_Utility_AjaxDispatcher
      */
-    public function setPluginName($pluginName) {
+    public function setPluginName($pluginName)
+    {
         $this->pluginName = $pluginName;
         return $this;
     }
@@ -238,7 +256,8 @@ class Tx_Mmimagemap_Utility_AjaxDispatcher {
      * @param $controllerName
      * @return Tx_Mmimagemap_Utility_AjaxDispatcher
      */
-    public function setControllerName($controllerName) {
+    public function setControllerName($controllerName)
+    {
         $this->controllerName = $controllerName;
         return $this;
     }
@@ -247,9 +266,9 @@ class Tx_Mmimagemap_Utility_AjaxDispatcher {
      * @param $actionName
      * @return Tx_Mmimagemap_Utility_AjaxDispatcher
      */
-    public function setActionName($actionName) {
+    public function setActionName($actionName)
+    {
         $this->actionName = $actionName;
         return $this;
     }
 }
-?>

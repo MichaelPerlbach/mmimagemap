@@ -4,7 +4,7 @@ namespace MikelMade\Mmimagemap\Domain\Repository;
 /***************************************************************
  *	Copyright notice
  *
- *	(c) 2018 MikelMade (http://www.mikelmade.de) 
+ *	(c) 2018 MikelMade (http://www.mikelmade.de)
  *	All rights reserved
  *
  *	This script is part of the TYPO3 project. The TYPO3 project is
@@ -31,46 +31,49 @@ namespace MikelMade\Mmimagemap\Domain\Repository;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class BcolorsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
-	
-	/**
-	 * Life cycle method.
-	 *
-	 * @return void
-	 */
-	public function initializeObject() {
-
-	}
-	
-	/**
-		* gets all bcolors data for a given bcolors id
-		*
-		* @param integer $bcolorsid
-		* @param string $fields
-		*
-		* return string or array
-		*/
-	public function GetBcolorsData($bcolorsid,$fields='*'){
-		$query = $this->createQuery();
-		$query->statement('SELECT '.$fields.' from tx_mmimagemap_domain_model_bcolors where uid='.(int)$bcolorsid);
-		$res = $query->execute(true);
-		if($fields != '*' && !preg_match('/\,/',$fields)){ return $res[0][$fields]; }
-		return $res[0];
-	}
-	
-	/**
-		* gets all bcolors for a given map id
-		*
-		* @param integer $mapid
-		*
-		* return string or array
-		*/
-	public function GetBcolors($mapid){
-		$query = $this->createQuery();
-		$query->statement('SELECT * from tx_mmimagemap_domain_model_bcolors where mapid='.(int)$mapid);
-		$res = $query->execute(true);
-		return $res;
-	}
-	
+class BcolorsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+{
+    
+    /**
+     * Life cycle method.
+     *
+     * @return void
+     */
+    public function initializeObject()
+    {
+    }
+    
+    /**
+        * gets all bcolors data for a given bcolors id
+        *
+        * @param integer $bcolorsid
+        * @param string $fields
+        *
+        * return string or array
+        */
+    public function GetBcolorsData($bcolorsid, $fields='*')
+    {
+        $query = $this->createQuery();
+        $query->statement('SELECT '.$fields.' from tx_mmimagemap_domain_model_bcolors where uid='.(int)$bcolorsid);
+        $res = $query->execute(true);
+        if ($fields != '*' && !preg_match('/\,/', $fields)) {
+            return $res[0][$fields];
+        }
+        return $res[0];
+    }
+    
+    /**
+        * gets all bcolors for a given map id
+        *
+        * @param integer $mapid
+        *
+        * return string or array
+        */
+    public function GetBcolors($mapid)
+    {
+        $query = $this->createQuery();
+        $query->statement('SELECT * from tx_mmimagemap_domain_model_bcolors where mapid='.(int)$mapid);
+        $res = $query->execute(true);
+        return $res;
+    }
 }
-?>

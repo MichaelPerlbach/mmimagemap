@@ -25,59 +25,59 @@
 
 /**
  *
-	*
-	*	@package	mmimagemap
-	*	@license	http://www.gnu.org/licenses/gpl.html	GNU	General	Public	License,	version	3	or	later
-	*
-	*/
-class	Tx_mmimagemap_Controller_AjaxBackendController	extends	\TYPO3\CMS\Extbase\Mvc\Controller\ActionController	{
-	
-	/**
-		*
-		*	@var \TYPO3\CMS\Extbase\Domain\Repository\MapRepository
-		*	@inject
-		*/
-	protected $mapRepository;
-	
-	/**
-		*
-		*	@var	\MikelMade\Argenproducts\Domain\Repository\AreaRepository
-		*	@inject
-		*/
-	protected $areaRepository;
-	
-	/**
-		*	pointRepository
-		*
-		*	@var	\MikelMade\Argenproducts\Domain\Repository\PointRepository
-		*	@inject
-		*/
-	protected	$pointRepository;
-	
-	/**
-		*	bcolorsRepository
-		*
-		*	@var	\MikelMade\Argenproducts\Domain\Repository\BcolorsRepository
-		*	@inject
-		*/
-	protected	$bcolorsRepository;	
-	
-	
-	/**
-		*	contentpopupRepository
-		*
-		*	@var	\MikelMade\Argenproducts\Domain\Repository\ContentpopupRepository
-		*	@inject
-		*/
-	protected $contentpopupRepository;
-	
-	/**
-		*	action	some
-		*
-		*	@return string
-	*/
-	public function someAction(){
-	}
-	
+    *
+    *	@package	mmimagemap
+    *	@license	http://www.gnu.org/licenses/gpl.html	GNU	General	Public	License,	version	3	or	later
+    *
+    */
+class Tx_mmimagemap_Controller_AjaxBackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+{
+    
+    /**
+        *
+        *	@var \TYPO3\CMS\Extbase\Domain\Repository\MapRepository
+        *	@inject
+        */
+    protected $mapRepository;
+    
+    /**
+        *
+        *	@var	\MikelMade\Argenproducts\Domain\Repository\AreaRepository
+        *	@inject
+        */
+    protected $areaRepository;
+    
+    /**
+        *	pointRepository
+        *
+        *	@var	\MikelMade\Argenproducts\Domain\Repository\PointRepository
+        *	@inject
+        */
+    protected $pointRepository;
+    
+    /**
+        *	bcolorsRepository
+        *
+        *	@var	\MikelMade\Argenproducts\Domain\Repository\BcolorsRepository
+        *	@inject
+        */
+    protected $bcolorsRepository;
+    
+    
+    /**
+        *	contentpopupRepository
+        *
+        *	@var	\MikelMade\Argenproducts\Domain\Repository\ContentpopupRepository
+        *	@inject
+        */
+    protected $contentpopupRepository;
+    
+    /**
+        *	action	some
+        *
+        *	@return string
+    */
+    public function someAction()
+    {
+    }
 }
-?>

@@ -3,7 +3,7 @@
 /***************************************************************
  *	Copyright notice
  *
- *	(c) 2018 MikelMade (www.mikelmade.de) 
+ *	(c) 2018 MikelMade (www.mikelmade.de)
  *	All rights reserved
  *
  *	This script is part of the TYPO3 project. The TYPO3 project is
@@ -27,22 +27,24 @@
  *
  * @package mmimagemap
  */
-class tx_mmimagemap_wizicon {
+class tx_mmimagemap_wizicon
+{
 
-	/**
-	 * Processing the wizard items array
-	 *
-	 * @param array $wizardItems The wizard items
-	 * @return array Modified array with wizard items
-	 */
-	function proc($wizardItems)     { 
-		$wizardItems['plugins_mmimagemap_pierror'] = array(
-			'icon' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('mmimagemap') . 'Resources/Public/Icons/module-mmimagemap.svg',
-			'title' => $GLOBALS['LANG']->sL('LLL:EXT:mmimagemap/Resources/Private/Language/locallang.xlf:tx_mmimagemap.wizard_title'),
-			'description' => $GLOBALS['LANG']->sL('LLL:EXT:mmimagemap/Resources/Private/Language/locallang.xlf:tx_mmimagemap.wizard_description'),
-			'params' => '&defVals[tt_content][CType]=list&&defVals[tt_content][list_type]=mmimagemap_pi1'
-		);
+    /**
+     * Processing the wizard items array
+     *
+     * @param array $wizardItems The wizard items
+     * @return array Modified array with wizard items
+     */
+    public function proc($wizardItems)
+    {
+        $wizardItems['plugins_mmimagemap_pierror'] = array(
+            'icon' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('mmimagemap') . 'Resources/Public/Icons/module-mmimagemap.svg',
+            'title' => $GLOBALS['LANG']->sL('LLL:EXT:mmimagemap/Resources/Private/Language/locallang.xlf:tx_mmimagemap.wizard_title'),
+            'description' => $GLOBALS['LANG']->sL('LLL:EXT:mmimagemap/Resources/Private/Language/locallang.xlf:tx_mmimagemap.wizard_description'),
+            'params' => '&defVals[tt_content][CType]=list&&defVals[tt_content][list_type]=mmimagemap_pi1'
+        );
 
-		return $wizardItems;
-	}
+        return $wizardItems;
+    }
 }

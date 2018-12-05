@@ -30,126 +30,136 @@ namespace MikelMade\Mmimagemap\Domain\Model;
  * @package mmimagemap
  *
  */
-class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
-	
-	/**
-		* uid
-		*
-		* @lazy
-		* @var \integer
-		*/
-	protected $uid;
+class Map extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+{
+    
+    /**
+        * uid
+        *
+        * @lazy
+        * @var \integer
+        */
+    protected $uid;
 
-	/**
-		* name 
-		*
-		* @lazy
-		* @var \string
-		*/
-	protected $name;
+    /**
+        * name
+        *
+        * @lazy
+        * @var \string
+        */
+    protected $name;
 
-	/**
-		* imgfile
-		*
-		* @lazy
-		* @var \string
-		*/
-	protected $imgfile;
-	
-	/**
-		* altfile
-		*
-		* @lazy
-		* @var \string
-		*/
-	protected $altfile;
-	
-	/**
-		* folder
-		*
-		* @lazy
-		* @var \string
-		*/
-	protected $folder;
-	
-	/**
-		* Returns the uid
-		*
-		* @return \integer $uid
-		*/
-	public function getId() {
-		return $this->uid;
-	}
-	
-	/**
-		* Returns the name
-		*
-		* @return \string $name
-		*/
-	public function getName() {
-		return $this->name;
-	}
-	
-	/**
-		* Sets the name
-		*
-		* @param \string $name
-		*/
-	public function setName($name) {
-		$this->name = $name;
-	}
-	
-	/**
-		* Returns the imgfile
-		*
-		* @return \string $imgfile
-		*/
-	public function getImgfile() {
-		return $this->imgfile;
-	}
-	
-	/**
-		* Sets the imgfile
-		*
-		* @param \string $imgfile
-		*/
-	public function setImgfile($imgfile) {
-		$this->imgfile = $imgfile;
-	}
-	
-	/**
-		* Returns the altfile
-		*
-		* @return \string $altfile
-		*/
-	public function getAltfile() {
-		return $this->altfile;
-	}
-	
-	/**
-		* Sets the altfile
-		*
-		* @param \string $altfile
-		*/
-	public function setAltfile($altfile) {
-		$this->altfile = $altfile;
-	}
-	
-	/**
-		* Returns the folder
-		*
-		* @return \string $folder
-		*/
-	public function getFolder() {
-		return $this->folder;
-	}
-	
-	/**
-		* Sets the folder
-		*
-		* @param \string $folder
-		*/
-	public function setFolder($folder) {
-		$this->folder = $folder;
-	}
+    /**
+        * imgfile
+        *
+        * @lazy
+        * @var \string
+        */
+    protected $imgfile;
+    
+    /**
+        * altfile
+        *
+        * @lazy
+        * @var \string
+        */
+    protected $altfile;
+    
+    /**
+        * folder
+        *
+        * @lazy
+        * @var \string
+        */
+    protected $folder;
+    
+    /**
+        * Returns the uid
+        *
+        * @return \integer $uid
+        */
+    public function getId()
+    {
+        return $this->uid;
+    }
+    
+    /**
+        * Returns the name
+        *
+        * @return \string $name
+        */
+    public function getName()
+    {
+        return $this->name;
+    }
+    
+    /**
+        * Sets the name
+        *
+        * @param \string $name
+        */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+    
+    /**
+        * Returns the imgfile
+        *
+        * @return \string $imgfile
+        */
+    public function getImgfile()
+    {
+        return $this->imgfile;
+    }
+    
+    /**
+        * Sets the imgfile
+        *
+        * @param \string $imgfile
+        */
+    public function setImgfile($imgfile)
+    {
+        $this->imgfile = $imgfile;
+    }
+    
+    /**
+        * Returns the altfile
+        *
+        * @return \string $altfile
+        */
+    public function getAltfile()
+    {
+        return $this->altfile;
+    }
+    
+    /**
+        * Sets the altfile
+        *
+        * @param \string $altfile
+        */
+    public function setAltfile($altfile)
+    {
+        $this->altfile = $altfile;
+    }
+    
+    /**
+        * Returns the folder
+        *
+        * @return \string $folder
+        */
+    public function getFolder()
+    {
+        return $this->folder;
+    }
+    
+    /**
+        * Sets the folder
+        *
+        * @param \string $folder
+        */
+    public function setFolder($folder)
+    {
+        $this->folder = $folder;
+    }
 }
