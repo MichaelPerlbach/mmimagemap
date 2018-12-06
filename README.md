@@ -1,7 +1,7 @@
 # mmimagemap
 a remake of the old MW Imagemap TYPO3 extension for newer TYPO3 versions
 
-This extension does not offer new functionalities.
+This extension does neither offer new functionalities nor a new user interface.
 It is just a new implementation of the old MW Imagemap plugin which should now work in TYPO3 8.x and 9.x.
 
 If someone wants to migrate data from an installation of the old MW Imagemap to the new MM Imagemap - just follow those steps:
@@ -12,7 +12,7 @@ If someone wants to migrate data from an installation of the old MW Imagemap to 
   
 3.) Comment line 15.
 
-4.) call [domainname]/typo3conf/ext/mmimagemap/Resources/Php/Private/Migratedata.php in your browser.
+4.) call [domainname]/typo3conf/ext/mmimagemap/Resources/Private/Php/Migratedata.php in your browser.
   
 5.) uncomment line 15 again.
 
