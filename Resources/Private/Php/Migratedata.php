@@ -60,6 +60,7 @@ foreach ($data as $item) {
 	(uid,mapid,areatype,arealink,description,color,param,febordercolor,fevisible,feborderthickness,fealtfile) values
 	('.(int)$item['id'].',
 	'.(int)$item['mid'].',
+	'.(int)$item['type'].',
 	\''.mysqli_real_escape_string($database, $item['link']).'\',
 	\''.mysqli_real_escape_string($database, $item['description']).'\',
 	\''.mysqli_real_escape_string($database, str_replace('#', '', $item['color'])).'\',
