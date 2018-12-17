@@ -32,7 +32,7 @@ foreach ($data as $item) {
 	\''.mysqli_real_escape_string($database, $item['name']).'\',
 	\''.mysqli_real_escape_string($database, $item['file']).'\',
 	\''.mysqli_real_escape_string($database, $item['alt_file']).'\',
-	\''.mysqli_real_escape_string($database, $item['folder']).'\');';
+	\''.mysqli_real_escape_string($database, str_replace('fileadmin/','',$item['folder'])).'\');';
     $result = mysqli_query($database, $sql, MYSQLI_USE_RESULT);
 }
 
