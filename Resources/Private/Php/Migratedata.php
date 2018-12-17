@@ -106,7 +106,7 @@ foreach ($data as $item) {
 	\''.mysqli_real_escape_string($database, str_replace('#', '', $item['popup_bordercolor'])).'\',
 	\''.mysqli_real_escape_string($database, str_replace('#', '', $item['popup_backgroundcolor'])).'\',
 	'.(int)$item['popup_borderwidth'].',
-	'.(int)$item['active'].'\');';
+	'.(int)$item['active'].');';
     $result = mysqli_query($database, $sql, MYSQLI_USE_RESULT);
 }
 
