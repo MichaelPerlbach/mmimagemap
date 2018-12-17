@@ -318,7 +318,7 @@ class BackendController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
                 $this->areaRepository->remove($delarea);
                 $this->pManager->persistAll();
             }
-            $contentpopups = $this->contentpopupRepository->GetContentpopups($mapid);
+            $contentpopups = $this->contentpopupRepository->GetContentpopups($area['uid']);
             foreach ($contentpopups as $contentpopup) {
                 $delcontentpopup = $this->areaRepository->findByUid($contentpopup['uid']);
                 $this->contentpopupRepository->remove($delcontentpopup);
