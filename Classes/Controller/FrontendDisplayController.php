@@ -130,7 +130,7 @@ class FrontendDisplayController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
                     $thisarea['coords'] .= $areadata['points']['x'].','.$areadata['points']['y'].','.((int)$areadata['points']['x']+(int)$areadata['points']['w']).','.((int)$areadata['points']['y']+(int)$areadata['points']['h']);
                 break;
                 
-                case 1: print 'circle';
+                case 1:
                     $thisarea['coords'] .= $areadata['points']['x'].','.$areadata['points']['y'].','.$areadata['points']['r'];
                 break;
                 
