@@ -27,7 +27,7 @@ class ContentViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHel
 		 */
 		public function render()
 		{
-			$uid = (int)$this->arguments['uid']; print $uid;
+			$uid = (int)$this->arguments['uid'];
 			$conf = array(
 				'tables' => 'tt_content',
 				'source' => $uid,
