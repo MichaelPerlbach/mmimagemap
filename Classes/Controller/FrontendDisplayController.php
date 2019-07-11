@@ -209,10 +209,10 @@ class FrontendDisplayController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
                 }
             }
             
-            if (strlen($thisparams['mouseover']) > 0) {
+            if (isset($thisparams['mouseover']) && strlen($thisparams['mouseover']) > 0) {
                 $thisarea['params'] .= 'onmouseover="'.$thisparams['mouseover'].'" ';
             }
-            if (strlen($thisparams['mouseover']) > 0) {
+            if (isset($thisparams['mouseout']) && strlen($thisparams['mouseout']) > 0) {
                 $thisarea['params'] .= ' onmouseout="'.$thisparams['mouseout'].'"';
             }
             
