@@ -120,8 +120,8 @@ class FrontendDisplayController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
         foreach ($allareas as $area) {
             $areadata = $this->areaRepository->GetCompleteArea($area->getUid());
         
-            $thisparams = '';
-            $thisarea = array();
+            $thisparams = [];
+            $thisarea = [];
             $thisarea['uid'] = $area->getUid();
             $thisarea['shape'] = $areashapes[$area->getAreatype()];
             $thisarea['coords'] = '';
@@ -191,21 +191,24 @@ class FrontendDisplayController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
             $thisarea['params'] = '';
             
             if (strlen($areadata['area']['param']) != 0) {
-                $events = ['onmouseover','onmousedown','onclick','onmouseout','onmouseup'];
+                $events = ['onmouseover','onmousedown','onclick','onmouseout','onmouseup']; // managing all javascript events
                 $params = $areadata['area']['param'];
                 $parray = explode(' ', $params);
                 foreach ($parray as $item) {
                     $iarray = explode('=', $item);
                     if (in_array(strtolower($iarray[0]), $events)) {
                         $item = \MikelMade\Mmimagemap\Utility\Tx_Mmimagemap_Utility_Div::CorrectParams($iarray[0], $item);
-                        if (strtolower($iarray[0]) == 'onmouseover') {
+                        if (trim(rtrim(strtolower($iarray[0]))) == 'onmouseover') {
                             $thisparams['mouseover'] .= 'Javascript:'.$item.';';
-                        } elseif (strtolower($iarray[0]) == 'onmouseout') {
+                        } elseif (trim(rtrim(strtolower($iarray[0]))) == 'onmouseout') {
                             $thisparams['mouseout'] .= 'Javascript:'.$item.';';
                         } else {
-                            $thisarea['params'] .= strtolower($iarray[0]).'="Javascript:'.$item.';"';
+                            $thisarea['params'] .= ' '.strtolower($iarray[0]).'="Javascript:'.$item.';"';
                         }
                     }
+						   else{
+							   $thisarea['params'] .= trim(rtrim(strtolower($iarray[0]))).'="'.trim(rtrim(str_replace(['"','\''],'',$iarray[1]))).'" ';
+							}
                 }
             }
             
