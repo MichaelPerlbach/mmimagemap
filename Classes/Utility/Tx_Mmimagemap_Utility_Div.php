@@ -239,7 +239,7 @@ class Tx_Mmimagemap_Utility_Div
         *	@param string
         *	return array
         */
-    public function ConvertToRGB($hexcolor)
+    public static function ConvertToRGB($hexcolor)
     {
         $bc = str_replace('#', '', $hexcolor);
         $r = hexdec(substr($bc, 0, 2));
