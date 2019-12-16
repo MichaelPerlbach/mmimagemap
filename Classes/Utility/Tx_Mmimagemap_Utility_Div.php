@@ -1,6 +1,6 @@
 <?php
 /***************************************************************
- *	(c) 2018 MikelMade (www.mikelmade.de)
+ *	(c) 2019 MikelMade (www.mikelmade.de)
  *	All rights reserved
 ***************************************************************/
 
@@ -19,11 +19,21 @@ class Tx_Mmimagemap_Utility_Div
     */
     public static function GetExtConf()
     {
-        $extconf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['mmimagemap']);
+        $extconf = @unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['mmimagemap']);
+				if($extconf != false) {
+				    $extconf['extension'] = $extconf['extension.'];
+				    $extconf['colors'] = $extconf['colors.'];
+				    unset($extconf['colors.']);
+				    unset($extconf['extension.']);
+				}
+				else {
+				    $extconf = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class)->get('mmimagemap');
+				}
+				
         $retconf = [];
         $retconf['colors'] = [];
         
-        foreach ($extconf['colors.'] as $key=>$value) {
+        foreach ($extconf['colors'] as $key=>$value) {
             if (strlen($value) != 0) {
                 $valarr = explode('|', $value);
                 $thiscol['color'] = $valarr[0];
@@ -36,7 +46,7 @@ class Tx_Mmimagemap_Utility_Div
             }
         }
 
-        $retconf['ext'] = $extconf['extension.'];
+        $retconf['ext'] = $extconf['extension'];
         
         return $retconf;
     }
@@ -314,3 +324,4 @@ class Tx_Mmimagemap_Utility_Div
         }
     }
 }
+
