@@ -3,9 +3,9 @@
 
 <f:section name="content">
 
-<div class="mm_imagemap_wrap" style="position:relative;height:{map.height}px">
+<div class="mm_imagemap_wrap" style="position:relative;height:{map.height}px;">
 	<f:if condition="{map.overlay}">
-		<img src="{map.overlay}" width="{map.width}" height="{map.height}" usemap="#map_{map.uid}" style="position:absolute;left:0px;top:0px;z-index:3;border:0px;" />
+		<img class="mm_imagemap_overlay" src="{map.overlay}" width="{map.width}" height="{map.height}" usemap="#map_{map.uid}" style="position:absolute;left:0px;top:0px;z-index:3;border:0px;" />
 	</f:if>
 	<img class="mm_imagemap_canvas" src="typo3conf/ext/mmimagemap/Resources/Public/Images/canvas.png" width="{map.width}" height="{map.height}" id="tx_mmimagemap_img_{map.uid}" usemap="#map_{map.uid}" alt="{map.name}" style="position:absolute;left:0px;top:0px;z-index:2;border:0px;background-image:URL(/fileadmin/{map.folder}{map.imgfile});background-repeat:no-repeat;" />
 	<map name="map_{map.uid}" id="map_{map.uid}">
