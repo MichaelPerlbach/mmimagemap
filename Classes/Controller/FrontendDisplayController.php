@@ -113,9 +113,9 @@ class FrontendDisplayController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
         $mapdata['width'] = $isize[0];
         $mapdata['height'] = $isize[1];
         
-        $areas = array();
+        $areas = [];
         $allareas = $this->areaRepository->findByMapid((int)$this->settings['map']);
-        $cboxes = array();
+        $cboxes = [];
         
         foreach ($allareas as $area) {
             $areadata = $this->areaRepository->GetCompleteArea($area->getUid());
@@ -193,8 +193,9 @@ class FrontendDisplayController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
             if (strlen($areadata['area']['param']) != 0) {
                 $events = ['onmouseover','onmousedown','onclick','onmouseout','onmouseup']; // managing all javascript events
                 $params = $areadata['area']['param'];
-                $parray = explode(' ', $params);
+                $parray = explode('" ', $params);
                 foreach ($parray as $item) {
+                    $item = str_replace('"','',$item);
                     $iarray = explode('=', $item);
                     if (in_array(strtolower($iarray[0]), $events)) {
                         $item = \MikelMade\Mmimagemap\Utility\Tx_Mmimagemap_Utility_Div::CorrectParams($iarray[0], $item);
@@ -206,9 +207,9 @@ class FrontendDisplayController extends \TYPO3\CMS\Extbase\Mvc\Controller\Action
                             $thisarea['params'] .= ' '.strtolower($iarray[0]).'="Javascript:'.$item.';"';
                         }
                     }
-						   else{
-							   $thisarea['params'] .= trim(rtrim(strtolower($iarray[0]))).'="'.trim(rtrim(str_replace(['"','\''],'',$iarray[1]))).'" ';
-							}
+                     else{
+                        $thisarea['params'] .= trim(rtrim(strtolower($iarray[0]))).'="'.trim(rtrim(str_replace(['"','\''],'',$iarray[1]))).'" ';
+                    }
                 }
             }
             
