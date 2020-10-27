@@ -11,6 +11,5 @@ if (!defined('TYPO3_MODE')) {
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'MikelMade.'.$_EXTKEY,
     'Pi1',
-    [ 'FrontendDisplay' => 'list' ],
     [ 'FrontendDisplay' => 'list' ]
 );
