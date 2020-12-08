@@ -96,7 +96,9 @@ class MapRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     public function GetMapsFromFolder($folder)
     {
         $query = $this->createQuery();
-        $query->statement('SELECT * from tx_mmimagemap_domain_model_map where folder=\''.$folder.'\'');
+        $query->matching(
+            $query->equals('folder', $folder)
+        );
         $res = $query->execute(true);
         
         foreach ($res as &$item) {
@@ -135,12 +137,18 @@ class MapRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     public function CheckForUnusedPic($path, $image, $mapid)
     {
         $query = $this->createQuery();
-        $query->statement('SELECT uid from tx_mmimagemap_domain_model_map where folder=\''.$path.'\' and imgfile=\''.$image.'\' and uid!='.(int)$mapid);
-        $res = $query->execute(true);
-        if (empty($res)) {
-            return true;
-        }
-        return false;
+        $count = $query->matching(
+            $query->logicalAnd(
+                $query->equals('folder', $path),
+                $query->equals('imgfile', $image),
+                $query->logicalNot(
+                    $query->equals('uid', (int)$mapid)
+                )
+            )
+        )
+            ->execute()
+            ->count();
+        return $count === 0;
     }
     
     /**
