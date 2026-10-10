@@ -1,3 +1,5 @@
+# THIS VERSION IS NO LONGER MAINTAINED. PLEASE USE MMINTERACTIVE INSTEAD.
+
 # mmimagemap
 a remake of the old MW Imagemap TYPO3 extension for newer TYPO3 versions
 
